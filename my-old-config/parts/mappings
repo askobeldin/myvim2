@@ -1,0 +1,30 @@
+" My menu mapping
+map <F8>	:emenu MyMenu.<TAB>
+
+" перемещение между окнами
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
+" перемещение между буферами
+noremap <C-TAB> :bnext<CR>:redraw<CR>
+noremap <C-S-TAB> :bprevious<CR>:redraw<CR>
+
+" перемещение по истории команд
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" search for visually highlighted text
+vmap // y/<C-R>"<CR>
+
+" moving current text line up or down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Toggles main menu in GUI mode
+map <silent> <F11> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>

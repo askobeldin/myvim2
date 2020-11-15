@@ -1,0 +1,38 @@
+" NerdTree
+Plugin 'scrooloose/nerdtree'
+
+" NERDCommenter
+Plugin 'scrooloose/nerdcommenter'
+
+" vim-scripts/mru
+Plugin 'vim-scripts/mru.vim'
+
+" bufexplorer
+Plugin 'jlanzarotta/bufexplorer'
+
+" slimv
+" Plugin 'kovisoft/slimv'
+
+" vimwiki
+Plugin 'vimwiki/vimwiki'
+
+" calendar (modern, with google)
+Plugin 'itchyny/calendar.vim'
+
+" c.vim
+Plugin 'c.vim'
+
+" UltiSnips
+Plugin 'SirVer/ultisnips'
+
+" Doxygen
+Plugin 'DoxygenToolkit.vim'
+
+" ctrlp.vim
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" vim-markdown and tabular
+Plugin 'godlygeek/tabular'
+
+" vim-move
+Plugin 'matze/vim-move'

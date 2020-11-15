@@ -1,0 +1,36 @@
+" Set up Vundle:
+" -------------
+" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+" Configure Plugins:
+" -----------------
+" Put this at the top of your .vimrc to use Vundle. Remove plugins you don't
+" need, they are for illustration purposes.
+
+" Brief help
+" ----------
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+"
+if (has('win32') || has('win64'))
+	set rtp+=~/vimfiles/bundle/Vundle.vim/
+else
+	set rtp+=~/.vim/bundle/Vundle.vim
+endif
+
+set nocompatible
+filetype off
+
+if (has('win32') || has('win64'))
+	call vundle#begin('$HOME/vimfiles/bundle/')
+else
+	call vundle#begin()
+endif
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+

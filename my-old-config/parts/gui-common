@@ -1,0 +1,32 @@
+if has("gui")
+    set guioptions+=aghre
+    set guioptions-=T       " no toolbar
+    set guioptions-=m       " no menu
+    set guioptions-=r       " no right scrollbar
+    set guioptions-=R       " no right scrollbar
+    set guioptions-=l       " no left scrollbar
+    set guioptions-=L       " no left scrollbar
+    set guipty
+
+	if (has('win32') || has('win64'))
+		" set guifont=Consolas:h10:cRUSSIAN
+		set guifont=DejaVu_Sans_Mono:h10:cRUSSIAN:qDRAFT
+	else
+		set guifont=DejaVu\ Sans\ Mono\ 9
+	endif
+
+    set guicursor=n-v-c:block-Cursor
+    set guicursor=i:hor15-Cursor
+
+    set guitablabel=%N\ %f
+
+    winpos 0 0 
+    set lines=70			" количество строк 
+    set columns=100			" количество столбцов
+
+    colorscheme oceandeep3
+	" set background=light
+    " colorscheme PaperColor
+
+endif
+
