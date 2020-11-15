@@ -1,24 +1,25 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: variables
+" Changed: 2020-11-15 21:17:37
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Section variables {{{
+"
 " Some useful variables
 " usage:  expand(vimDir . '/path_to_folder_or_file')
 "
 if (has('win32') || has('win64'))
-	let vimDir = '$HOME/vimfiles'
+  let vimDir = '$HOME/vimfiles'
 else
-	let vimDir = '$HOME/.vim'
+  let vimDir = '$HOME/.vim'
 endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: plugin-manager-begin
+" }}}
+
+" Section my plugins {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set up Vundle:
 " -------------
 " $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-" Configure Plugins:
+" Configure plugins:
 " -----------------
 " Put this at the top of your .vimrc to use Vundle. Remove plugins you don't
 " need, they are for illustration purposes.
@@ -32,28 +33,26 @@ endif
 "
 "
 if (has('win32') || has('win64'))
-	set rtp+=~/vimfiles/bundle/Vundle.vim/
+  set rtp+=~/vimfiles/bundle/Vundle.vim/
 else
-	set rtp+=~/.vim/bundle/Vundle.vim
+  set rtp+=~/.vim/bundle/Vundle.vim
 endif
 
 set nocompatible
 filetype off
 
 if (has('win32') || has('win64'))
-	call vundle#begin('$HOME/vimfiles/bundle/')
+  call vundle#begin('$HOME/vimfiles/bundle/')
 else
-	call vundle#begin()
+  call vundle#begin()
 endif
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: plugins
+" my plugins
+" ----------
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree
 " Plugin 'scrooloose/nerdtree'
 
@@ -76,7 +75,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/calendar.vim'
 
 " c.vim
-Plugin 'c.vim'
+" Plugin 'c.vim'
 
 " UltiSnips
 "Plugin 'SirVer/ultisnips'
@@ -92,41 +91,29 @@ Plugin 'c.vim'
 
 " vim-move
 Plugin 'matze/vim-move'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: plugin-manager-end
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" The end of plugins config
 " All of your Plugins must be added before the following line
 call vundle#end()
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: common
+" Section common {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin indent on			" включение плагинов типа файла и отступов
+filetype plugin indent on
 runtime macros/matchit.vim
 
-
-set encoding=utf-8
-
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+set backspace=indent,eol,start    " allow backspacing over everything in insert mode
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup  " do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file
+  set backup    " keep a backup file
 endif
 
-" read .vimrc in local directory
-set exrc
+set exrc        " read .vimrc in local directory
+set secure      " security for local directory
 
-" security for local directory
-set secure
-
-" mapleader is `space`
-let mapleader = " "
+let mapleader = " "    " mapleader is `SPACE`
 
 set nostartofline
 
@@ -134,9 +121,11 @@ set nostartofline
 set showfulltag
 set report=0
 
+" messages
 set shortmess-=aI
 set shortmess+=T
 
+" help window
 set helpheight=12
 set winminheight=0
 
@@ -145,13 +134,10 @@ set scrolloff=2
 set sidescrolloff=5
 set sidescroll=15
 
-" Nice :list or :set list
 set listchars=tab:<->,trail:.,space:.,extends:+,eol:$,precedes:+
-
 set fillchars="vert: ,fold:-"
 
-" Diff options
-set diffopt=filler,context:3
+set diffopt=filler,context:3   " Diff options
 
 " Always save some info for next time
 set history=2000
@@ -160,58 +146,46 @@ set viminfo='200,h
 " Don't save options to session file - it's possibly buggy
 set sessionoptions-=options
 
-" It's not an MS Word clone
 set secure
 
-set ch=1				" number of lines used for the command-line
-set nocul				" подсветка строки
-
-set ruler				" show the cursor position all the time
-set showcmd				" display incomplete commands
-set incsearch			" do incremental searching
-set nowrapscan			" 
-
-set foldenable			" fold enable
-" set foldmethod=indent
-
-set laststatus=2		" 0 = never a status line; 2 = always a status line; 
-                        " 1 = status line if there is more than one window
-
-set nowrap				" long lines (no)wrap
+set ch=1            " number of lines used for the command-line
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set nowrapscan      " 
+set foldenable      " fold enable
+set laststatus=2    " 0 = never a status line; 2 = always a status line; 
+                    " 1 = status line if there is more than one window
+set nowrap          " long lines (no)wrap
 set hidden
-set vb					" visual bell enable
+set vb              " visual bell enable
 
-""""""""""""""""
-" russian config
-set keymap=russian-jcukenwin
+set keymap=russian-jcukenwin    " config for russian language
+
 set iminsert=0
 set imsearch=0
-
-" autoreread file if it has changed outside
-set autoread
+set autoread        " autoreread file if it has changed outside
 
 set showmatch
-set si                " enable smart indent
+set smartindent     " enable smart indent
 
-set ts=4
-set sw=4
+set tabstop=4
+set shiftwidth=4
 
-set linebreak			"включение симпатичного переноса строк
+set linebreak
 set ignorecase
+
+set showtabline=1    " when the line with tab page labels will be displayed
 
 set fenc=""
 set fencs=""
 
-set showtabline=1		" отображение закладок при открытии 2-х и более файлов ?
-
-colorscheme oceandeep3
-
-
+" misc {{{
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+"map Q gq
 
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
@@ -226,7 +200,6 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
@@ -251,18 +224,18 @@ if has("autocmd")
   augroup END
 
 else
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 endif
+" }}}
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: statusline
+" Section statusline {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline=%F%m%w%r\%=[%{&fenc}\|%{&ff}\|%Y\|%04l,%04v\|%p%%]
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: menu
+" }}}
+
+" Section menu {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmenu
 set wcm=<Tab>
 
@@ -272,64 +245,49 @@ menu MyMenu.Encoding.windows-1251 :e ++enc=cp1251<CR>
 menu MyMenu.Encoding.cp866        :e ++enc=cp866<CR>
 menu MyMenu.Listchars             :set list!<CR>
 menu MyMenu.ClearSpaces ms:%s/\s\+$//e<CR>'s
-menu MyMenu.Insert.LastChangeDate	msHmtgg/[Ll]ast[Cc]hange:\s*/e+1<CR>"_D"=strftime("%d %b %Y %X")<CR>p'tzt`s
-menu MyMenu.Insert.ThisFileName		msHmtgg/[Ff]ile:\s*/e+1<CR>"_D"=expand("%:p")<CR>p'tzt`s
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: mappings
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" My menu mapping
-map <F8>	:emenu MyMenu.<TAB>
+menu MyMenu.ThisFileName   msHmtgg/[Ff]ile:\s*/e+1<CR>"_D"=expand("%:p")<CR>p'tzt`s
+" }}}
 
-" перемещение между окнами
+" Section mappings {{{
+"
+" my menu mapping
+map <F8>  :emenu MyMenu.<TAB>
+
+" jumping cursor between windows
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 
-" перемещение между буферами
+" switching buffers
 noremap <C-TAB> :bnext<CR>:redraw<CR>
 noremap <C-S-TAB> :bprevious<CR>:redraw<CR>
 
-" перемещение по истории команд
+" moving in command's history
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " search for visually highlighted text
 vmap // y/<C-R>"<CR>
 
-" moving current text line up or down
-"nnoremap <A-j> :m .+1<CR>==
-"nnoremap <A-k> :m .-2<CR>==
-"inoremap <A-j> <Esc>:m .+1<CR>==gi
-"inoremap <A-k> <Esc>:m .-2<CR>==gi
-"vnoremap <A-j> :m '>+1<CR>gv=gv
-"vnoremap <A-k> :m '<-2<CR>gv=gv
-
 " Toggles main menu in GUI mode
 map <silent> <F11> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: leader-keys
+" }}}
+
+" Section leader keys mappings {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>h :set hlsearch!<CR>          " вкл. подсветки поиска
+nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
+nnoremap <silent> <Leader>n :set number!<CR>       " toggle of line numbers
+nnoremap <silent> <Leader>lm :set list!<CR>        " list mode
+"nnoremap <silent> <Leader>t :NERDTreeToggle<CR>    " NERDTree toggle
+" }}}
 
-map <Leader>n :set number!<CR>            " вкл. нумерацию строк
-
-" list mode
-nmap <silent> <leader>lm :set list!<CR>
-
-" NERDTree toggle
-nnoremap <silent> <leader>t :NERDTreeToggle<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: functions
+" Section my functions {{{
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mydiff
-"
 set diffexpr=MyDiff()
 
-function MyDiff()
+function! MyDiff()
    let opt = ""
    if &diffopt =~ "icase"
      let opt = opt . "-i "
@@ -338,15 +296,27 @@ function MyDiff()
      let opt = opt . "-b "
    endif
    " silent execute "!diff -a --binary " . opt . v:fname_in . " " . v:fname_new .
-	" \  " > " . v:fname_out
+  " \  " > " . v:fname_out
    silent execute '!"'.$VIMRUNTIME.'\diff" -a ' . opt . v:fname_in . ' ' . v:fname_new . ' > ' . v:fname_out
 endfunction
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: augroups
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" If buffer modified, update any 'Changed: ' in the first 20 lines.
+" 'Changed: ' can have up to 10 characters before (they are retained).
+" Restores cursor and window position using save_cursor variable.
+function! LastModifiedDate()
+  if &modified
+    let l:save_cursor = getpos(".")
+    let l:n = min([20, line("$")])
+    keepjumps exe '1,' . l:n . 's#^\(.\{,10}Changed: \).*#\1' .
+          \ strftime('%Y-%m-%d %T') . '#e'
+    call histdel('search', -1)
+    call setpos('.', l:save_cursor)
+  endif
+endfunction
+" }}}
+
+" Section autocmd groups config {{{
 " python files config
 augroup filetype_py
 	autocmd!
@@ -421,11 +391,12 @@ augroup filetype_make
     autocmd!
 	autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
 augroup END
+" }}} 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" part: plugins-config
-"
+" Configure my plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" slimv
+" slimv {{{
 "
 """""""""""""""""""""""""""
 " if there are problems - convert `slime.el` file to unix line endings
@@ -435,28 +406,29 @@ augroup END
 let g:paredit_leader = ','
 "let g:slimv_impl = 'sbcl'
 "if (has('win32') || has('win64'))
-	" windows
-	" let g:slimv_swank_cmd = '!start "sbcl" --load "C:/Users/a.skobeldin/vimfiles/bundle/slimv/slime/start-swank.lisp" '
+  " windows
+  " let g:slimv_swank_cmd = '!start "sbcl" --load "C:/Users/a.skobeldin/vimfiles/bundle/slimv/slime/start-swank.lisp" '
 "else
-	" linux
-	" let g:slimv_swank_cmd = '! xterm -e sbcl --load $HOME/.vim/bundle/slimv/slime/start-swank.lisp &'
+  " linux
+  " let g:slimv_swank_cmd = '! xterm -e sbcl --load $HOME/.vim/bundle/slimv/slime/start-swank.lisp &'
 "endif
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vimwiki
+" vimwiki {{{
 "
 if (has('win32') || has('win64'))
-	" windows
-	let wiki_win = {}
-	let wiki_win.path = 'c:\myinfo\vimwiki\'
-	let wiki_win.path_html = 'c:\myinfo\vimwiki\public_html\'
-	let g:vimwiki_list = [wiki_win,]
+  " windows
+  let wiki_win = {}
+  let wiki_win.path = 'c:\myinfo\vimwiki\'
+  let wiki_win.path_html = 'c:\myinfo\vimwiki\public_html\'
+  let g:vimwiki_list = [wiki_win,]
 else
-	" linux
-	let wiki_lin = {}
-	let wiki_lin.path = '~/vimwiki/'
-	let wiki_lin.path_html = '~/vimwiki/public_html/'
-	let g:vimwiki_list = [wiki_lin,]
+  " linux
+  let wiki_lin = {}
+  let wiki_lin.path = '~/vimwiki/'
+  let wiki_lin.path_html = '~/vimwiki/public_html/'
+  let g:vimwiki_list = [wiki_lin,]
 endif
+" }}}
 
-" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
+" vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:
