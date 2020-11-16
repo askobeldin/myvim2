@@ -1,4 +1,4 @@
-" Changed: 2020-11-15 21:17:37
+" Changed: 2020-11-16 15:38:40
 "
 "
 " Section variables {{{
@@ -11,6 +11,8 @@ if (has('win32') || has('win64'))
 else
   let vimDir = '$HOME/.vim'
 endif
+
+let myviminfo_file = expand(vimDir . '/_viminfo')
 " }}}
 
 " Section my plugins {{{
@@ -180,6 +182,7 @@ set showtabline=1    " when the line with tab page labels will be displayed
 set fenc=""
 set fencs=""
 
+let &viminfofile=myviminfo_file
 " misc {{{
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -319,77 +322,77 @@ endfunction
 " Section autocmd groups config {{{
 " python files config
 augroup filetype_py
-	autocmd!
-	autocmd BufRead *.py set nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-	autocmd BufNewFile,BufReadPre *.py setlocal fileencoding=utf-8 fileformat=unix
-	autocmd BufNewFile *.py silent! :execute "0r " . expand(vimDir . '/myheaders/python.header') . "|4"
+  autocmd!
+  autocmd BufRead *.py set nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+  autocmd BufNewFile,BufReadPre *.py setlocal fileencoding=utf-8 fileformat=unix
+  autocmd BufNewFile *.py silent! :execute "0r " . expand(vimDir . '/myheaders/python.header') . "|4"
 augroup END
 
 " perl files config
 augroup filetype_perl
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.pl setlocal fileencoding=utf-8 filetype=perl fileformat=unix
-	autocmd BufNewFile *.pl silent! :execute "0r " . expand(vimDir . '/myheaders/perl.header') . "|10"
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.pl setlocal fileencoding=utf-8 filetype=perl fileformat=unix
+  autocmd BufNewFile *.pl silent! :execute "0r " . expand(vimDir . '/myheaders/perl.header') . "|10"
 augroup END
 
 " html files config
 augroup filetype_html
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.html setlocal fileencoding=utf-8 filetype=html fileformat=unix nowrap
-	autocmd BufNewFile *.html silent! :execute "0r " . expand(vimDir . '/myheaders/html.header') . "|5"
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.html setlocal fileencoding=utf-8 filetype=html fileformat=unix nowrap
+  autocmd BufNewFile *.html silent! :execute "0r " . expand(vimDir . '/myheaders/html.header') . "|5"
 augroup END
 
 " javascript files config
 augroup filetype_javascript
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.js setlocal fileencoding=utf-8 filetype=javascript fileformat=unix
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.js setlocal fileencoding=utf-8 filetype=javascript fileformat=unix
 augroup END
 
 " json files config
 augroup filetype_json
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.json setlocal fileencoding=utf-8 filetype=json fileformat=unix
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.json setlocal fileencoding=utf-8 filetype=json fileformat=unix
 augroup END
 
 " tcl files config
 augroup filetype_tcl
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.tcl setlocal fileencoding=utf-8 filetype=tcl fileformat=unix
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.tcl setlocal fileencoding=utf-8 filetype=tcl fileformat=unix
 augroup END
 
 " lisp files config
 augroup filetype_lisp
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.lisp setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
-	autocmd BufNewFile,BufReadPre *.cl setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
-	autocmd BufNewFile,BufReadPre *.el setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.lisp setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+  autocmd BufNewFile,BufReadPre *.cl setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+  autocmd BufNewFile,BufReadPre *.el setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
 augroup END
 
 " long lines highlighting
 augroup longLines
-    autocmd!
-    autocmd BufEnter * let &colorcolumn=""
-    autocmd BufEnter *.py let &colorcolumn="80"
-    autocmd BufEnter *.lisp,*.cl,*.el,*.lsp let &colorcolumn="101"
+  autocmd!
+  autocmd BufEnter * let &colorcolumn=""
+  autocmd BufEnter *.py let &colorcolumn="80"
+  autocmd BufEnter *.lisp,*.cl,*.el,*.lsp let &colorcolumn="101"
 augroup END
 
 " markdown files config
 augroup filetype_md
-    autocmd!
-    autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
 augroup END
 
 " C files config
 augroup filetype_CC
-    autocmd!
-	autocmd BufNewFile,BufReadPre *.h,*.c setlocal cin fileencoding=utf-8 filetype=c.doxygen fileformat=unix
-	autocmd filetype c setlocal cin filetype=c.doxygen fileencoding=utf-8 fileformat=unix formatprg=astyle
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.h,*.c setlocal cin fileencoding=utf-8 filetype=c.doxygen fileformat=unix
+  autocmd filetype c setlocal cin filetype=c.doxygen fileencoding=utf-8 fileformat=unix formatprg=astyle
 augroup END
 
 " make files config
 augroup filetype_make
-    autocmd!
-	autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
+  autocmd!
+  autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
 augroup END
 " }}} 
 
@@ -429,6 +432,9 @@ else
   let wiki_lin.path_html = '~/vimwiki/public_html/'
   let g:vimwiki_list = [wiki_lin,]
 endif
+" }}}
+" MRU {{{
+let MRU_File = expand(vimDir . '/_vim_mru_files')
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:

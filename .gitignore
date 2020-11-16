@@ -10,3 +10,4 @@ __pycache__/
 bundle/
 
 .net*
+_vim*
