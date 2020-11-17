@@ -1,4 +1,4 @@
-" Changed:  
+" Changed: 2020-11-17 22:14:57
 "
 "
 " Section variables {{{
@@ -39,7 +39,7 @@ if (has('win32') || has('win64'))
 else
   set rtp+=~/.vim/bundle/Vundle.vim
 endif
-
+ 
 set nocompatible
 filetype off
 
@@ -215,7 +215,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 80 characters.
-  autocmd FileType text setlocal textwidth=80
+  "autocmd FileType text setlocal textwidth=80
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -276,11 +276,13 @@ vmap // y/<C-R>"<CR>
 
 " Toggles main menu in GUI mode
 map <silent> <F11> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>    " hide highlighting of search matches
 " }}}
 
 " Section leader keys mappings {{{
 "
-nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
+"nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
 nnoremap <silent> <Leader>n :set number!<CR>       " toggle of line numbers
 nnoremap <silent> <Leader>lm :set list!<CR>        " list mode
 "nnoremap <silent> <Leader>t :NERDTreeToggle<CR>    " NERDTree toggle
@@ -305,17 +307,17 @@ function! MyDiff()
 endfunction
 
 
-" If buffer modified, update any 'Changed: ' in the first 20 lines.
+" If buffer modified, update any 'Changed: ' in the first 10 lines.
 " 'Changed: ' can have up to 10 characters before (they are retained).
 " Restores cursor and window position using save_cursor variable.
 function! LastModifiedDate()
   if &modified
-    let l:save_cursor = getpos(".")
-    let l:n = min([20, line("$")])
-    keepjumps exe '1,' . l:n . 's#^\(.\{,10}Changed: \).*#\1' .
+    let save_cursor = getpos(".")
+    let n = min([10, line("$")])
+    keepjumps exe '1,' . n . 's#^\(.\{,10}Changed: \).*#\1' .
           \ strftime('%Y-%m-%d %T') . '#e'
     call histdel('search', -1)
-    call setpos('.', l:save_cursor)
+    call setpos('.', save_cursor)
   endif
 endfunction
 " }}}
@@ -395,6 +397,9 @@ augroup filetype_make
   autocmd!
   autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
 augroup END
+
+" insert last modified date
+autocmd BufWritePre * call LastModifiedDate()
 " }}} 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
