@@ -1,4 +1,4 @@
-" Changed: 2020-11-16 15:38:40
+" Changed:  
 "
 "
 " Section variables {{{
@@ -111,7 +111,7 @@ if has("vms")
 else
   set backup    " keep a backup file
 endif
-
+ 
 set exrc        " read .vimrc in local directory
 set secure      " security for local directory
 
@@ -145,8 +145,9 @@ set diffopt=filler,context:3   " Diff options
 set history=2000
 set viminfo='200,h
 
-" Don't save options to session file - it's possibly buggy
-set sessionoptions-=options
+
+set sessionoptions-=options       " Don't save options to session file - it's possibly buggy
+set sessionoptions+=localoptions
 
 set secure
 
