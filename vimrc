@@ -1,4 +1,4 @@
-" Changed: 2020-11-17 22:14:57
+" Changed: 2020-11-18 11:24:01
 "
 "
 " Section variables {{{
@@ -400,6 +400,12 @@ augroup END
 
 " insert last modified date
 autocmd BufWritePre * call LastModifiedDate()
+
+" For all modifiabled text files
+autocmd BufNewFile,BufReadPre *.txt
+  \ if &modifiable |
+  \     setlocal textwidth=92 fileencoding=utf-8 fileformat=unix |
+  \ endif
 " }}} 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
