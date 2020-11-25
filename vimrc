@@ -1,4 +1,4 @@
-" Changed: 2020-11-18 11:24:01
+" Changed: 2020-11-25 08:58:34
 "
 "
 " Section variables {{{
@@ -278,6 +278,9 @@ vmap // y/<C-R>"<CR>
 map <silent> <F11> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>    " hide highlighting of search matches
+
+" expands `%%` text in Ex mode to path to folder of active buffer file
+cnoremap <expr> %% getcmdtype() == ':' ? expand(expand('%:h').'/') : '%%'
 " }}}
 
 " Section leader keys mappings {{{
