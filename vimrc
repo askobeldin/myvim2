@@ -1,4 +1,4 @@
-" Changed: 2020-11-26 11:33:45
+" Changed: 2020-11-26 21:12:17
 "
 "
 " Section variables {{{
@@ -417,17 +417,18 @@ autocmd BufNewFile,BufReadPre *.txt
 """""""""""""""""""""""""""
 " if there are problems - convert `slime.el` file to unix line endings
 " open slime.el and then do: 
-"         :w ++f=unix
+"         :w ++ff=unix
 """""""""""""""""""""""""""
 let g:paredit_leader = ','
-"let g:slimv_impl = 'sbcl'
-"if (has('win32') || has('win64'))
+let g:slimv_impl = 'sbcl'
+if (has('win32') || has('win64'))
   " windows
   " let g:slimv_swank_cmd = '!start "sbcl" --load "C:/Users/a.skobeldin/vimfiles/bundle/slimv/slime/start-swank.lisp" '
-"else
+  let g:slimv_swank_cmd = '!start "sbcl" --load "' . expand(vimDir . '/bundle/slimv/slime/start-swank.lisp') . '"'
+else
   " linux
-  " let g:slimv_swank_cmd = '! xterm -e sbcl --load $HOME/.vim/bundle/slimv/slime/start-swank.lisp &'
-"endif
+  let g:slimv_swank_cmd = '! xterm -e sbcl --load $HOME/.vim/bundle/slimv/slime/start-swank.lisp &'
+endif
 " }}}
 
 " vimwiki {{{
