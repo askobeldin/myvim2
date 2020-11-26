@@ -1,4 +1,4 @@
-" Changed: 2020-11-25 08:58:34
+" Changed: 2020-11-26 11:33:45
 "
 "
 " Section variables {{{
@@ -277,15 +277,13 @@ vmap // y/<C-R>"<CR>
 " Toggles main menu in GUI mode
 map <silent> <F11> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
-nnoremap <silent> <C-l> :nohlsearch<CR><C-l>    " hide highlighting of search matches
-
 " expands `%%` text in Ex mode to path to folder of active buffer file
 cnoremap <expr> %% getcmdtype() == ':' ? expand(expand('%:h').'/') : '%%'
 " }}}
 
 " Section leader keys mappings {{{
 "
-"nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
+nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
 nnoremap <silent> <Leader>n :set number!<CR>       " toggle of line numbers
 nnoremap <silent> <Leader>lm :set list!<CR>        " list mode
 "nnoremap <silent> <Leader>t :NERDTreeToggle<CR>    " NERDTree toggle
