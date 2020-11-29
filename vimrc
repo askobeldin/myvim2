@@ -1,4 +1,4 @@
-" Changed: 2020-11-26 21:12:17
+" Changed: 2020-11-29 12:08:40
 "
 "
 " Section variables {{{
@@ -102,7 +102,9 @@ call vundle#end()
 " Section common {{{
 "
 filetype plugin indent on
-runtime macros/matchit.vim
+
+packadd! matchit
+" runtime macros/matchit.vim
 
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
 
