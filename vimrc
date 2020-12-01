@@ -1,4 +1,4 @@
-" Changed: 2020-11-29 12:08:40
+" Changed: 2020-12-01 15:00:59
 "
 "
 " Section variables {{{
@@ -450,7 +450,47 @@ else
 endif
 " }}}
 " MRU {{{
+"
 let MRU_File = expand(vimDir . '/_vim_mru_files')
 " }}}
+" Calendar plugin colors {{{
+"
+autocmd FileType calendar call calendar#color#syntax('SaturdayTitle', '#ff0000', '#334e5b', '')
+autocmd FileType calendar call calendar#color#syntax('SundayTitle', '#ff0000', '#334e5b', '')
+autocmd FileType calendar call calendar#color#syntax('Sunday', '#ff0000', '#103040', '')
+autocmd FileType calendar call calendar#color#syntax('Saturday', '#ff0000', '#103040', '')
 
+"call calendar#color#syntax('Select', '', s:select_color, '')
+"call calendar#color#syntax('Sunday', s:sunday_fg_color, s:sunday_bg_color, '')
+"call calendar#color#syntax('Saturday', s:saturday_fg_color, s:saturday_bg_color, '')
+"call calendar#color#syntax('TodaySunday', s:sunday_fg_color, s:sunday_bg_color, 'bold')
+"call calendar#color#syntax('TodaySaturday', s:saturday_fg_color, s:saturday_bg_color, 'bold')
+"call calendar#color#syntax('Today', s:today_fg_color, s:today_color, 'bold')
+"call calendar#color#syntax('DayTitle', s:weekday_fg_color, s:weekday_color, '')
+"call calendar#color#syntax('SundayTitle', s:sunday_title_fg_color, s:sunday_bg_color, '')
+"call calendar#color#syntax('SaturdayTitle', s:saturday_title_fg_color, s:saturday_bg_color, '')
+"call calendar#color#syntax('OtherMonth', s:othermonth_fg_color, '', '')
+"call calendar#color#syntax('OtherMonthSelect', s:othermonth_fg_color, s:select_color, '')
+"call calendar#color#syntax('NormalSpace', s:space_fg_color, s:space_bg_color, '')
+"call calendar#color#syntax('CommentSelect', s:comment_fg_color, s:select_color, '')
+"
+" result of hi command:
+" CalendarSelect xxx guibg=#3a5460
+" CalendarSunday xxx guifg=#e41919 guibg=#461313
+" CalendarSaturday xxx guifg=#1919e4 guibg=#131346
+" CalendarTodaySunday xxx term=bold cterm=bold gui=bold guifg=#e41919 guibg=#461313
+" CalendarTodaySaturday xxx term=bold cterm=bold gui=bold guifg=#1919e4 guibg=#131346
+" CalendarToday  xxx term=bold cterm=bold gui=bold guifg=#159629 guibg=#123317
+  
+" CalendarDayTitle xxx guifg=#8f9ca2 guibg=#334e5b
+" CalendarSundayTitle xxx guifg=#bc1717 guibg=#461313
+" CalendarSaturdayTitle xxx guifg=#1717bc guibg=#131346
+  
+" CalendarOtherMonth xxx guifg=#6a7d86
+" CalendarOtherMonthSelect xxx guifg=#6a7d86 guibg=#3a5460
+" CalendarNormalSpace xxx guifg=#103040 guibg=#e4e4e4
+" CalendarCommentSelect xxx guifg=CadetBlue guibg=#3a5460
+" CalendarComment xxx links to Comment
+"
+" }}}
 " vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:
