@@ -1,4 +1,4 @@
-" Changed: 2020-12-01 21:52:50
+" Changed: 2020-12-10 20:44:02
 "
 "
 " Section variables {{{
@@ -68,7 +68,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'jlanzarotta/bufexplorer'
 
 " slimv
-Plugin 'kovisoft/slimv'
+"Plugin 'kovisoft/slimv'
 
 " vimwiki
 Plugin 'vimwiki/vimwiki'
@@ -144,8 +144,8 @@ set fillchars="vert: ,fold:-"
 set diffopt=filler,context:3   " Diff options
 
 " Always save some info for next time
-set history=2000
-set viminfo='200,h
+set history=200
+set viminfo='50,h,s100,<1000
 
 
 set sessionoptions-=options       " Don't save options to session file - it's possibly buggy
