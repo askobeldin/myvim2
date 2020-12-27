@@ -1,4 +1,4 @@
-" Changed: 2020-12-10 20:44:02
+" Changed: 2020-12-26 21:29:46
 "
 "
 " Section variables {{{
@@ -13,6 +13,10 @@ else
 endif
 
 let myviminfo_file = expand(vimDir . '/_viminfo')
+
+let mybackupdir = $TEMP . '//'
+let mydirectory = $TEMP . '//'
+let myundodir = $TEMP . '//'
 " }}}
 
 " Section my plugins {{{
@@ -152,6 +156,12 @@ set sessionoptions-=options       " Don't save options to session file - it's po
 set sessionoptions+=localoptions
 
 set secure
+
+
+" backup dirs
+let &backupdir = mybackupdir
+let &directory = mydirectory
+let &undodir = myundodir
 
 set ch=1            " number of lines used for the command-line
 set ruler           " show the cursor position all the time
