@@ -1,4 +1,4 @@
-" Changed: 2020-12-26 21:29:46
+" Changed: 2021-01-01 13:55:42
 "
 "
 " Section variables {{{
@@ -81,19 +81,26 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/calendar.vim'
 
 " c.vim
-" Plugin 'c.vim'
+Plugin 'c.vim'
 
 " UltiSnips
 "Plugin 'SirVer/ultisnips'
 
 " Doxygen
-"Plugin 'DoxygenToolkit.vim'
+Plugin 'DoxygenToolkit.vim'
 
 " ctrlp.vim
 "Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim-markdown and tabular
 "Plugin 'godlygeek/tabular'
+
+" tagbar plugin
+" Dependencies:
+" Exuberant Ctags >= 5.5, or (highly recommended) any version of Universal Ctags
+" which is a currently maintained fork of Exuberant Ctags with many bugfixes,
+" support for many more formats, and proper Unicode support
+Plugin 'majutsushi/tagbar'
 
 " vim-move
 Plugin 'matze/vim-move'
