@@ -1,4 +1,4 @@
-" Changed: 2021-01-01 13:55:42
+" Changed: 2021-01-13 21:35:29
 "
 "
 " Section variables {{{
@@ -104,6 +104,9 @@ Plugin 'majutsushi/tagbar'
 
 " vim-move
 Plugin 'matze/vim-move'
+
+" startify
+"Plugin 'mhinz/vim-startify'
 
 " The end of plugins config
 " All of your Plugins must be added before the following line

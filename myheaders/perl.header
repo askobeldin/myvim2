@@ -1,15 +1,11 @@
 #!/usr/bin/perl
 
 use Modern::Perl;
+use warnings qw/ FATAL utf8 /;
 use utf8;
-#binmode(STDOUT, ':utf8');
-use Encode::Locale;
-use Encode;
-
-if (-t) {
-    binmode(STDIN, ":encoding(console_in)");
-    binmode(STDOUT, ":encoding(console_out)");
-    binmode(STDERR, ":encoding(console_out)");
-}
+use open qw/ :encoding(UTF-8) :std /;
+use charnames qw/ :full :short /;
+#binmode(DATA, ":encoding(UTF-8)");
+use autodie;
 
 
