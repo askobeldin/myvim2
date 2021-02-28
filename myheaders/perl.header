@@ -3,9 +3,18 @@
 use Modern::Perl;
 use warnings qw/ FATAL utf8 /;
 use utf8;
+### for Linux
 use open qw/ :encoding(UTF-8) :std /;
 use charnames qw/ :full :short /;
 #binmode(DATA, ":encoding(UTF-8)");
 use autodie;
 
+### for Windows (uncomment)
+#if (-t) {
+    #use Encode::Locale;
+    #use Encode;
+    #binmode(STDIN, ":encoding(console_in)");
+    #binmode(STDOUT, ":encoding(console_out)");
+    #binmode(STDERR, ":encoding(console_out)");
+#}
 
