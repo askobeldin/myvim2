@@ -1,4 +1,4 @@
-" Changed: 2021-02-26 21:26:48
+" Changed: 2021-04-29 21:45:21
 "
 "
 " Section variables {{{
@@ -14,15 +14,9 @@ endif
 
 let myviminfo_file = expand(vimDir . '/_viminfo')
 
-if (has('win32') || has('win64'))
-  let mybackupdir = $TEMP . '//'
-  let mydirectory = $TEMP . '//'
-  let myundodir = $TEMP . '//'
-else
-  let mybackupdir = '/tmp' . '//'
-  let mydirectory = '/tmp' . '//'
-  let myundodir = '/tmp' . '//'
-endif
+let mybackupdir = $TEMP . '//'
+let mydirectory = $TEMP . '//'
+let myundodir = $TEMP . '//'
 " }}}
 
 " Section my plugins {{{
@@ -414,6 +408,12 @@ augroup filetype_md
   autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
 augroup END
 
+" vimwiki files config
+augroup filetype_vimwiki
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
+augroup END
+
 " C files config
 augroup filetype_CC
   autocmd!
@@ -461,19 +461,25 @@ endif
 
 " vimwiki {{{
 "
-if (has('win32') || has('win64'))
-  " windows
-  let wiki_win = {}
-  let wiki_win.path = 'c:\myinfo\vimwiki\'
-  let wiki_win.path_html = 'c:\myinfo\vimwiki\public_html\'
-  let g:vimwiki_list = [wiki_win,]
-else
-  " linux
-  let wiki_lin = {}
-  let wiki_lin.path = '~/vimwiki/'
-  let wiki_lin.path_html = '~/vimwiki/public_html/'
-  let g:vimwiki_list = [wiki_lin,]
-endif
+let path_to_wiki = '$HOME/vimwiki'
+
+" my personal wiki
+let wiki_1 = {}
+let wiki_1.path = expand(path_to_wiki . '/personal')
+let wiki_1.path_html = expand(path_to_wiki . '/personal/html')
+let wiki_1.name = 'My personal wiki'
+let wiki_1.syntax = 'markdown'
+let wiki_1.links_space_char = '_'
+
+" my work wiki
+let wiki_2 = {}
+let wiki_2.path = expand(path_to_wiki . '/work')
+let wiki_2.path_html = expand(path_to_wiki . '/work/html')
+let wiki_2.name = 'My work wiki'
+let wiki_2.syntax = 'markdown'
+let wiki_2.links_space_char = '_'
+
+let g:vimwiki_list = [wiki_1, wiki_2]
 " }}}
 " MRU {{{
 "
