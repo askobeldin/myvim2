@@ -1,4 +1,4 @@
-" Changed: 2021-04-29 21:45:21
+" Changed: 2021-05-02 11:28:22
 "
 "
 " Section variables {{{
@@ -14,9 +14,16 @@ endif
 
 let myviminfo_file = expand(vimDir . '/_viminfo')
 
-let mybackupdir = $TEMP . '//'
-let mydirectory = $TEMP . '//'
-let myundodir = $TEMP . '//'
+if (has('win32') || has('win64'))
+  let mybackupdir = $TEMP . '//'
+  let mydirectory = $TEMP . '//'
+  let myundodir = $TEMP . '//'
+else
+  " linux
+  let mybackupdir = '/tmp/'
+  let mydirectory = '/tmp/'
+  let myundodir = '/tmp/'
+endif
 " }}}
 
 " Section my plugins {{{
