@@ -1,4 +1,4 @@
-" Changed: 2021-05-02 11:28:22
+" Changed: 2021-08-19 13:48:10
 "
 "
 " Section variables {{{
@@ -492,8 +492,18 @@ let g:vimwiki_list = [wiki_1, wiki_2]
 "
 let MRU_File = expand(vimDir . '/_vim_mru_files')
 " }}}
-" Calendar plugin colors {{{
+" Calendar plugin {{{
 "
+let g:calendar_first_day = 'monday'
+let g:calendar_date_endian = 'little'
+let g:calendar_date_separator = '.'
+let g:calendar_week_number = 1
+let g:calendar_view = 'month'
+let g:calendar_views = ['year', 'month', 'week', 'day', 'agenda', 'event']
+let g:calendar_calendar = 'russia'
+let g:calendar_cache_directory = expand(path_to_wiki . '/calendar/cache') 
+
+" colors
 autocmd FileType calendar call calendar#color#syntax('SaturdayTitle', '#ee0000', '#334e5b', '')
 autocmd FileType calendar call calendar#color#syntax('SundayTitle', '#ee0000', '#334e5b', '')
 autocmd FileType calendar call calendar#color#syntax('Sunday', '#ee0000', '#103040', '')
