@@ -1,4 +1,4 @@
-" Changed: 2021-08-19 12:52:52
+" Changed: 2021-08-27 20:15:49
 "
 "
 " Section variables {{{
@@ -88,7 +88,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/calendar.vim'
 
 " c.vim
-Plugin 'c.vim'
+"Plugin 'c.vim'
 
 " UltiSnips
 "Plugin 'SirVer/ultisnips'
