@@ -1,4 +1,4 @@
-" Changed: 2021-08-27 20:15:49
+" Changed: 2021-10-27 08:30:06
 "
 "
 " Section variables {{{
@@ -364,8 +364,8 @@ augroup END
 " perl files config
 augroup filetype_perl
   autocmd!
-  autocmd BufNewFile,BufReadPre *.pl setlocal fileencoding=utf-8 filetype=perl fileformat=unix
-  autocmd BufNewFile *.pl silent! :execute "0r " . expand(vimDir . '/myheaders/perl.header') . "|10"
+  autocmd BufNewFile,BufReadPre *.pl,*.pm setlocal fileencoding=utf-8 filetype=perl fileformat=unix
+  autocmd BufNewFile *.pl,*.pm silent! :execute "0r " . expand(vimDir . '/myheaders/perl.header') . "|10"
 augroup END
 
 " html files config
