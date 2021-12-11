@@ -1,4 +1,4 @@
-" Changed: 2021-10-27 08:30:06
+" Changed: 2021-12-11 18:46:44
 "
 "
 " Section variables {{{
@@ -416,9 +416,24 @@ augroup filetype_md
 augroup END
 
 " vimwiki files config
+function! VimwikiFoldLevelCustom(lnum)
+  let pounds = strlen(matchstr(getline(a:lnum), '^#\+'))
+  if (pounds)
+    return '>' . pounds  " start a fold level
+  endif
+  if getline(a:lnum) =~? '\v^\s*$'
+    if (strlen(matchstr(getline(a:lnum + 1), '^#\+')))
+      return '-1' " don't fold last blank line before header
+    endif
+  endif
+  return '=' " return previous fold level
+endfunction
+
 augroup filetype_vimwiki
   autocmd!
   autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
+  autocmd FileType vimwiki setlocal foldmethod=expr |
+      \ setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum)
 augroup END
 
 " C files config
@@ -476,6 +491,7 @@ let wiki_1.path = expand(path_to_wiki . '/personal')
 let wiki_1.path_html = expand(path_to_wiki . '/personal/html')
 let wiki_1.name = 'My personal wiki'
 let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.wiki'
 let wiki_1.links_space_char = '_'
 
 " my work wiki
@@ -484,6 +500,7 @@ let wiki_2.path = expand(path_to_wiki . '/work')
 let wiki_2.path_html = expand(path_to_wiki . '/work/html')
 let wiki_2.name = 'My work wiki'
 let wiki_2.syntax = 'markdown'
+let wiki_2.ext = '.wiki'
 let wiki_2.links_space_char = '_'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
