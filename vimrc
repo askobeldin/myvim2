@@ -1,4 +1,4 @@
-" Changed: 2021-12-11 18:46:44
+" Changed: 2021-12-14 20:54:30
 "
 "
 " Section variables {{{
@@ -504,6 +504,7 @@ let wiki_2.ext = '.wiki'
 let wiki_2.links_space_char = '_'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
+let g:vimwiki_use_calendar = 1
 " }}}
 " MRU {{{
 "
