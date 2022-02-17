@@ -1,4 +1,4 @@
-" Changed: 2021-12-14 20:54:30
+" Changed: 2022-02-17 20:41:04
 "
 "
 " Section variables {{{
@@ -391,6 +391,12 @@ augroup END
 augroup filetype_tcl
   autocmd!
   autocmd BufNewFile,BufReadPre *.tcl setlocal fileencoding=utf-8 filetype=tcl fileformat=unix
+augroup END
+
+" go files config
+augroup filetype_go
+  autocmd!
+  autocmd BufNewFile,BufReadPre *.go setlocal fileencoding=utf-8 filetype=go fileformat=unix
 augroup END
 
 " lisp files config
