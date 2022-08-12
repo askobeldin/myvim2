@@ -1,4 +1,4 @@
-" Changed: 2022-02-17 20:41:04
+" Changed: 2022-05-05 20:40:56
 "
 "
 " Section variables {{{
@@ -79,7 +79,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'jlanzarotta/bufexplorer'
 
 " slimv
-"Plugin 'kovisoft/slimv'
+Plugin 'kovisoft/slimv'
 
 " vimwiki
 Plugin 'vimwiki/vimwiki'

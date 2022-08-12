@@ -2,31 +2,28 @@
 
 use v5.32;
 use utf8;
-use warnings;
-use open qw(:std :utf8);
-no feature qw(indirect);
-use feature qw(signatures);
-no warnings qw(experimental::signatures);
+use strict;
+use autodie;
+use feature qw( signatures unicode_strings );
 
-# locale
 use Encode::Locale;
-use Encode;
+use Encode qw( decode );
 
-#binmode(DATA, ":encoding(UTF-8)");
-
-### for Windows
-#if (-t) {
-    #binmode(STDIN, ":encoding(console_in)");
-    #binmode(STDOUT, ":encoding(console_out)");
-    #binmode(STDERR, ":encoding(console_out)");
-#}
-
-# decode from utf8 locale
-#use Encode qw(decode_utf8);
-#@ARGV = map { decode_utf8($_, 1) } @ARGV;
-
-# decode from locale
-#@ARGV = map {decode(locale => $_, Encode::FB_CROAK)} @ARGV;
+BEGIN {
+    if ($^O eq 'MSWin32') {
+        # Windows config
+        require Win32;
+        my $cie = "cp" . Win32::GetConsoleCP();
+        my $coe = "cp" . Win32::GetConsoleOutputCP();
+        binmode(STDIN,  ":encoding($cie)");
+        binmode(STDOUT, ":encoding($coe)");
+        binmode(STDERR, ":encoding($coe)");
+    } else {
+        # Linux config
+        require encoding;
+        my $e = encoding::_get_locale_encoding() // 'UTF-8';
+        @ARGV = map { decode($e, $_) } @ARGV;
+    }
+}
 #------------------------------------------------------------
-
 
