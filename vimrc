@@ -1,4 +1,4 @@
-" Changed: 2024-02-10 18:49:14
+" Changed: 2024-02-10 21:41:53
 "
 "
 " Section variables {{{
@@ -85,7 +85,8 @@ Plugin 'kovisoft/slimv'
 Plugin 'vimwiki/vimwiki'
 
 " calendar (modern, with google)
-Plugin 'itchyny/calendar.vim'
+"Plugin 'itchyny/calendar.vim'
+Plugin 'mattn/calendar-vim'
 
 " c.vim
 "Plugin 'c.vim'
@@ -529,23 +530,25 @@ let g:vimwiki_use_calendar = 1
 "
 let MRU_File = expand(vimDir . '/_vim_mru_files')
 " }}}
-" Calendar plugin {{{
+" Calendar 'itchyny/calendar.vim' plugin {{{
 "
-let g:calendar_first_day = 'monday'
-let g:calendar_date_endian = 'little'
-let g:calendar_date_separator = '.'
-let g:calendar_week_number = 1
-let g:calendar_view = 'month'
-let g:calendar_views = ['year', 'month', 'week', 'day', 'agenda', 'event']
-let g:calendar_calendar = 'russia'
-let g:calendar_cache_directory = expand(path_to_wiki . '/calendar/cache') 
+"let g:calendar_first_day = 'monday'
+"let g:calendar_date_endian = 'little'
+"let g:calendar_date_separator = '.'
+"let g:calendar_week_number = 1
+"let g:calendar_view = 'month'
+"let g:calendar_views = ['year', 'month', 'week', 'day', 'agenda', 'event']
+"let g:calendar_calendar = 'russia'
+"let g:calendar_cache_directory = expand(path_to_wiki . '/calendar/cache') 
 
 " colors
-autocmd FileType calendar call calendar#color#syntax('SaturdayTitle', '#ee0000', '#334e5b', '')
-autocmd FileType calendar call calendar#color#syntax('SundayTitle', '#ee0000', '#334e5b', '')
-autocmd FileType calendar call calendar#color#syntax('Sunday', '#ee0000', '#103040', '')
-autocmd FileType calendar call calendar#color#syntax('Saturday', '#ee0000', '#103040', '')
-autocmd FileType calendar call calendar#color#syntax('Today', '#ffff00', '#103040', 'bold')
+"autocmd FileType calendar call calendar#color#syntax('SaturdayTitle', '#ee0000', '#334e5b', '')
+"autocmd FileType calendar call calendar#color#syntax('SundayTitle', '#ee0000', '#334e5b', '')
+"autocmd FileType calendar call calendar#color#syntax('Sunday', '#ee0000', '#103040', '')
+"autocmd FileType calendar call calendar#color#syntax('Saturday', '#ee0000', '#103040', '')
+"autocmd FileType calendar call calendar#color#syntax('Today', '#ffff00', '#103040', 'bold')
+
+
 
 "call calendar#color#syntax('Select', '', s:select_color, '')
 "call calendar#color#syntax('TodaySunday', s:sunday_fg_color, s:sunday_bg_color, 'bold')
