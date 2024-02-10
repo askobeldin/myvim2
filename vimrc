@@ -1,4 +1,4 @@
-" Changed: 2022-05-05 20:40:56
+" Changed: 2024-02-10 18:49:14
 "
 "
 " Section variables {{{
@@ -114,6 +114,19 @@ Plugin 'matze/vim-move'
 
 " startify
 "Plugin 'mhinz/vim-startify'
+
+" perl
+Plugin 'vim-perl/vim-perl',  { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+
+
+" Color themes here
+"
+"Plugin 'larsbs/vimterial'
+"Plugin 'adrian5/oceanic-next-vim'
+"Plugin 'hzchirs/vim-material'
+"Plugin 'glepnir/oceanic-material'
+
+Plugin 'NLKNguyen/papercolor-theme'
 
 " The end of plugins config
 " All of your Plugins must be added before the following line

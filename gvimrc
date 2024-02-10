@@ -1,4 +1,4 @@
-" Changed: 2020-11-15 18:42:01
+" Changed: 2024-02-10 20:06:45
 "
 "
 " section common {{{
@@ -30,8 +30,32 @@ if has("gui")
     set lines=70        " number of lines
     set columns=100     " number of columns
 
+    " ========================================
     " my color scheme
-    colorscheme oceandeep3
+    "colorscheme oceandeep3
+    "
+    " PaperColor theme config
+    " https://github.com/NLKNguyen/papercolor-theme
+    set t_Co=256
+    set background=dark
+    let g:PaperColor_Theme_Options = {
+      \   'theme': {
+      \     'default.dark': {
+      \       'override' : {
+      \         'color00' : ['#103040', ''],
+      \         'linenumber_bg' : ['#103040', ''],
+      \         'cursor_bg' : ['#ffff00', ''],
+      \         'cursor_fg' : ['#1a1a1a', ''],
+      \         'cursorline' : ['#003853', ''],
+      \         'cursorcolumn' : ['#003853', ''],
+      \         'folded_fg' : ['#b0d0e0', ''],
+      \         'folded_bg' : ['#305060', '']
+      \       }
+      \     }
+      \   }
+      \ }
+    colorscheme PaperColor
+
 endif
 " }}}
 
