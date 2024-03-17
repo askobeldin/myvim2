@@ -6,15 +6,13 @@ use strict;
 use warnings  qw/FATAL utf8/;
 use open      qw/:std :encoding(UTF-8)/;   # undeclared streams in UTF-8
 use charnames qw/:full :short/;            # unneeded in v5.16
-use autodie;
+use Encode qw/ encode decode /;
 
-if ($^O eq 'MSWin32') {
-        # Windows config
-        use Encode qw/decode/;
-        use Encode::Locale;
-        binmode STDIN,  ":encoding(console_in)"  if -t STDIN;
-        binmode STDOUT, ":encoding(console_out)" if -t STDOUT;
-        binmode STDERR, ":encoding(console_out)" if -t STDERR;
-}
+BEGIN {
+    my $cscp;
+    if ($^O eq 'MSWin32') {require Win32;$cscp = 'cp' . Win32::GetACP();}
+    else {require encoding; $cscp = 'UTF-8' // encoding::_get_locale_encoding();}
+    sub get_cscp {$cscp;}  # get current system code page
+};
 #------------------------------------------------------------
 
