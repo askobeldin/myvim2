@@ -1,4 +1,4 @@
-" Changed: 2024-02-10 21:41:53
+" Changed: 2024-04-24 21:01:43
 "
 "
 " Section variables {{{
@@ -113,11 +113,16 @@ Plugin 'majutsushi/tagbar'
 " vim-move
 Plugin 'matze/vim-move'
 
+" Scratch window
+Plugin 'mtth/scratch.vim'
+
 " startify
 "Plugin 'mhinz/vim-startify'
 
 " perl
-Plugin 'vim-perl/vim-perl',  { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+" XXX: problems with vim9
+"Plugin 'vim-perl/vim-perl',  { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+"Plugin 'vim-perl/vim-perl', {'lazy' : 'true', 'ft' : 'perl', 'build' : 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny'} 
 
 
 " Color themes here

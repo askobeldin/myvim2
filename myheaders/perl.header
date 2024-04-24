@@ -11,7 +11,7 @@ use Encode qw/ encode decode /;
 BEGIN {
     my $cscp;
     if ($^O eq 'MSWin32') {require Win32;$cscp = 'cp' . Win32::GetACP();}
-    else {require encoding; $cscp = 'UTF-8' // encoding::_get_locale_encoding();}
+    else {require encoding; $cscp = encoding::_get_locale_encoding() // 'UTF-8';}
     sub get_cscp {$cscp;}  # get current system code page
 };
 #------------------------------------------------------------
