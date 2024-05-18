@@ -1,7 +1,11 @@
-" Changed: 2024-04-24 21:01:43
+" Changed: 2024-05-18 20:45:05
 "
 "
 " Section variables {{{
+"
+" encoding and scriptencoding
+set encoding=utf-8
+scriptencoding utf-8
 "
 " Some useful variables
 " usage:  expand(vimDir . '/path_to_folder_or_file')
@@ -311,6 +315,12 @@ noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 
+" перемещения курсора
+noremap <silent> k gk
+noremap <silent> j gj
+"noremap <silent> 0 g0
+"noremap <silent> $ g$
+
 " switching buffers
 noremap <C-TAB> :bnext<CR>:redraw<CR>
 noremap <C-S-TAB> :bprevious<CR>:redraw<CR>
@@ -480,7 +490,9 @@ autocmd BufWritePre * call LastModifiedDate()
 " For all modifiabled text files
 autocmd BufNewFile,BufReadPre *.txt
   \ if &modifiable |
-  \     setlocal textwidth=92 fileencoding=utf-8 fileformat=unix |
+  \     setlocal textwidth=0 fileencoding=utf-8 fileformat=unix |
+  \     setlocal wrapmargin=1 formatoptions+=t formatoptions-=l |
+  \     setlocal wrap |
   \ endif
 " }}} 
 
