@@ -1,4 +1,4 @@
-" Changed: 2024-05-18 20:45:05
+" Changed: 2024-05-30 21:41:01
 "
 "
 " Section variables {{{
@@ -90,19 +90,18 @@ Plugin 'vimwiki/vimwiki'
 
 " calendar (modern, with google)
 "Plugin 'itchyny/calendar.vim'
+
+" этот плагин работает с vimwiki
 Plugin 'mattn/calendar-vim'
 
 " c.vim
 "Plugin 'c.vim'
 
-" UltiSnips
-"Plugin 'SirVer/ultisnips'
-
 " Doxygen
-Plugin 'DoxygenToolkit.vim'
+"Plugin 'DoxygenToolkit.vim'
 
 " ctrlp.vim
-"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim-markdown and tabular
 "Plugin 'godlygeek/tabular'
@@ -118,10 +117,17 @@ Plugin 'majutsushi/tagbar'
 Plugin 'matze/vim-move'
 
 " Scratch window
-Plugin 'mtth/scratch.vim'
+"Plugin 'mtth/scratch.vim'
 
 " startify
 "Plugin 'mhinz/vim-startify'
+
+" snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" snippets set for snipmate
+"Plugin 'honza/vim-snippets'
 
 " perl
 " XXX: problems with vim9
@@ -309,6 +315,10 @@ menu MyMenu.ClearSpaces ms:%s/\s\+$//e<CR>'s
 " my menu mapping
 map <F8>  :emenu MyMenu.<TAB>
 
+" snippets
+imap <F9> <Plug>snipMateNextOrTrigger
+smap <F9> <Plug>snipMateNextOrTrigger
+
 " jumping cursor between windows
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
@@ -450,25 +460,9 @@ augroup filetype_md
   autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
 augroup END
 
-" vimwiki files config
-function! VimwikiFoldLevelCustom(lnum)
-  let pounds = strlen(matchstr(getline(a:lnum), '^#\+'))
-  if (pounds)
-    return '>' . pounds  " start a fold level
-  endif
-  if getline(a:lnum) =~? '\v^\s*$'
-    if (strlen(matchstr(getline(a:lnum + 1), '^#\+')))
-      return '-1' " don't fold last blank line before header
-    endif
-  endif
-  return '=' " return previous fold level
-endfunction
-
 augroup filetype_vimwiki
   autocmd!
   autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
-  autocmd FileType vimwiki setlocal foldmethod=expr |
-      \ setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum)
 augroup END
 
 " C files config
@@ -542,6 +536,9 @@ let wiki_2.links_space_char = '_'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
 let g:vimwiki_use_calendar = 1
+
+let g:vimwiki_global_ext = 0
+let g:vimwiki_folding = 'custom'
 " }}}
 " MRU {{{
 "
