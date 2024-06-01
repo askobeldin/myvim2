@@ -1,4 +1,4 @@
-" Changed: 2024-02-10 20:06:45
+" Changed: 2024-06-01 22:00:11
 "
 "
 " section common {{{
@@ -16,7 +16,7 @@ if has("gui")
     " set guifont=Consolas:h10:cRUSSIAN
     set guifont=DejaVu_Sans_Mono:h10:cRUSSIAN:qDRAFT
   else
-    set guifont=DejaVu\ Sans\ Mono\ 9
+    set guifont=DejaVu\ Sans\ Mono\ 11
   endif
 
     set guicursor=n-v-c:block-Cursor
