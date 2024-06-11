@@ -1,4 +1,4 @@
-" Changed: 2024-05-30 21:41:01
+" Changed: 2024-06-11 20:25:34
 "
 "
 " Section variables {{{
@@ -500,6 +500,8 @@ autocmd BufNewFile,BufReadPre *.txt
 " open slime.el and then do: 
 "         :w ++ff=unix
 """""""""""""""""""""""""""
+let g:paredit_mode = 1
+let g:paredit_electric_return = 1
 let g:paredit_leader = ','
 let g:slimv_impl = 'sbcl'
 if (has('win32') || has('win64'))
