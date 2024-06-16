@@ -1,4 +1,4 @@
-" Changed: 2024-06-11 20:25:34
+" Changed: 2024-06-16 21:44:07
 "
 "
 " Section variables {{{
@@ -460,9 +460,15 @@ augroup filetype_md
   autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
 augroup END
 
+" vimwiki files config
 augroup filetype_vimwiki
   autocmd!
   autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
+augroup END
+
+augroup VimrcAuGroup
+  autocmd!
+  autocmd FileType vimwiki setlocal foldmethod=expr | setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum)
 augroup END
 
 " C files config
@@ -517,13 +523,17 @@ endif
 " vimwiki {{{
 "
 let path_to_wiki = '$HOME/vimwiki'
+let g:vimwiki_ext2syntax = {'.md': 'markdown',
+                         \ '.mkd': 'markdown',
+                        \ '.wiki': 'default'}
+
 
 " my personal wiki
 let wiki_1 = {}
 let wiki_1.path = expand(path_to_wiki . '/personal')
 let wiki_1.path_html = expand(path_to_wiki . '/personal/html')
 let wiki_1.name = 'My personal wiki'
-let wiki_1.syntax = 'markdown'
+let wiki_1.syntax = 'default'
 let wiki_1.ext = '.wiki'
 let wiki_1.links_space_char = '_'
 
@@ -532,15 +542,28 @@ let wiki_2 = {}
 let wiki_2.path = expand(path_to_wiki . '/work')
 let wiki_2.path_html = expand(path_to_wiki . '/work/html')
 let wiki_2.name = 'My work wiki'
-let wiki_2.syntax = 'markdown'
+let wiki_2.syntax = 'default'
 let wiki_2.ext = '.wiki'
 let wiki_2.links_space_char = '_'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
 let g:vimwiki_use_calendar = 1
 
-let g:vimwiki_global_ext = 0
+let g:vimwiki_global_ext = 1 
 let g:vimwiki_folding = 'custom'
+
+function! VimwikiFoldLevelCustom(lnum)
+  let pounds = strlen(matchstr(getline(a:lnum), '^#\+'))
+  if (pounds)
+    return '>' . pounds  " start a fold level
+  endif
+  if getline(a:lnum) =~? '\v^\s*$'
+    if (strlen(matchstr(getline(a:lnum + 1), '^#\+')))
+      return '-1' " don't fold last blank line before header
+    endif
+  endif
+  return '=' " return previous fold level
+endfunction
 " }}}
 " MRU {{{
 "
