@@ -1,4 +1,4 @@
-" Changed: 2024-06-16 21:44:07
+" Changed: 2024-06-17 20:10:59
 "
 "
 " Section variables {{{
@@ -523,9 +523,7 @@ endif
 " vimwiki {{{
 "
 let path_to_wiki = '$HOME/vimwiki'
-let g:vimwiki_ext2syntax = {'.md': 'markdown',
-                         \ '.mkd': 'markdown',
-                        \ '.wiki': 'default'}
+let g:vimwiki_ext2syntax = {'.wiki': 'default'}
 
 
 " my personal wiki
