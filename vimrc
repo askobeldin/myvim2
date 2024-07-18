@@ -1,4 +1,4 @@
-" Changed: 2024-07-13 09:30:05
+" Changed: 2024-07-18 22:09:25
 "
 "
 " Section variables {{{
@@ -241,7 +241,14 @@ set showtabline=1    " when the line with tab page labels will be displayed
 set fenc=""
 set fencs=""
 
-colorscheme atom
+if (has('win32') || has('win64'))
+  set background=dark
+else
+  set t_Co=16
+  set background=dark
+endif
+
+colorscheme industry
 
 let &viminfofile=myviminfo_file
 " misc {{{
