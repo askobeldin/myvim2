@@ -1,4 +1,4 @@
-" Changed: 2024-07-18 22:09:25
+" Changed: 2024-12-01 13:39:57
 "
 "
 " Section variables {{{
@@ -235,6 +235,8 @@ set shiftwidth=4
 
 set linebreak
 set ignorecase
+
+let &showbreak = '↳'
 
 set showtabline=1    " when the line with tab page labels will be displayed
 
@@ -500,7 +502,7 @@ autocmd BufWritePre * call LastModifiedDate()
 autocmd BufNewFile,BufReadPre *.txt
   \ if &modifiable |
   \     setlocal textwidth=0 fileencoding=utf-8 fileformat=unix |
-  \     setlocal wrapmargin=1 formatoptions+=t formatoptions-=l |
+  \     setlocal wrapmargin=0 formatoptions+=t formatoptions-=l |
   \     setlocal wrap |
   \ endif
 " }}} 
