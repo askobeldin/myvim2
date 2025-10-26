@@ -1,18 +1,9 @@
 #!/usr/bin/perl
-
-use v5.32;
+use v5.36;
 use utf8;
 use strict;
-use warnings  qw/FATAL utf8/;
-use open      qw/:std :encoding(UTF-8)/;   # undeclared streams in UTF-8
-use charnames qw/:full :short/;            # unneeded in v5.16
-use Encode qw/ encode decode /;
+use warnings qw/ FATAL utf8 /;
+use open qw/ :std :encoding(UTF-8) /;
+use charnames qw/ :full :short /;
 
-BEGIN {
-    my $cscp;
-    if ($^O eq 'MSWin32') {require Win32;$cscp = 'cp' . Win32::GetACP();}
-    else {require encoding; $cscp = encoding::_get_locale_encoding() // 'UTF-8';}
-    sub get_cscp {$cscp;}  # get current system code page
-};
-#------------------------------------------------------------
 
