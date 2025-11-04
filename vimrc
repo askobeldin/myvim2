@@ -1,4 +1,4 @@
-" Changed: 2024-12-01 13:39:57
+" Changed: 2025-11-04 13:34:13
 "
 "
 " Section variables {{{
@@ -123,9 +123,9 @@ Plugin 'matze/vim-move'
 "Plugin 'mhinz/vim-startify'
 
 " snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
 " snippets set for snipmate
 "Plugin 'honza/vim-snippets'
 
