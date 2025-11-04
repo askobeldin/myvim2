@@ -1,4 +1,4 @@
-" Changed: 2024-06-01 22:00:11
+" Changed: 2025-11-04 20:22:05
 "
 "
 " section common {{{
@@ -14,7 +14,7 @@ if has("gui")
 
   if (has('win32') || has('win64'))
     " set guifont=Consolas:h10:cRUSSIAN
-    set guifont=DejaVu_Sans_Mono:h10:cRUSSIAN:qDRAFT
+    set guifont=DejaVu_Sans_Mono:h11:cRUSSIAN:qDRAFT
   else
     set guifont=DejaVu\ Sans\ Mono\ 11
   endif
