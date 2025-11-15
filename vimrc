@@ -1,4 +1,4 @@
-" Changed: 2025-11-04 13:34:13
+" Changed: 2025-11-11 21:50:53
 "
 "
 " Section variables {{{
@@ -236,7 +236,7 @@ set shiftwidth=4
 set linebreak
 set ignorecase
 
-let &showbreak = '↳'
+"let &showbreak = '↳'  " При вписывании длинной строки отображается в начале строки
 
 set showtabline=1    " when the line with tab page labels will be displayed
 
@@ -479,7 +479,7 @@ augroup END
 
 augroup VimrcAuGroup
   autocmd!
-  autocmd FileType vimwiki setlocal foldmethod=expr | setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum)
+  autocmd FileType vimwiki setlocal foldmethod=expr | setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum) | setlocal wrap
 augroup END
 
 " C files config
