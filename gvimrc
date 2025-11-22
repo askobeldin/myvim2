@@ -1,4 +1,4 @@
-" Changed: 2025-11-22 16:13:13
+" Changed: 2025-11-22 17:11:28
 "
 "
 " section common {{{
@@ -23,7 +23,7 @@ if has("gui")
       let &guifont='DejaVu_Sans_Mono:h' . text_height . ':cRUSSIAN:qDRAFT'
     else
       "set guifont=DejaVu\ Sans\ Mono\ 11
-      let &guifont='DejaVu\ Sans\ Mono\ ' . text_height
+      let &guifont='DejaVu Sans Mono ' . text_height
     endif
 
     set guicursor=n-v-c:block-Cursor
