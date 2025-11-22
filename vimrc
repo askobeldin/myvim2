@@ -1,4 +1,4 @@
-" Changed: 2025-11-11 21:50:53
+" Changed: 2025-11-22 15:34:08
 "
 "
 " Section variables {{{
@@ -246,11 +246,30 @@ set fencs=""
 if (has('win32') || has('win64'))
   set background=dark
 else
-  set t_Co=16
+  set t_Co=256
   set background=dark
 endif
 
-colorscheme industry
+" PaperColor theme config
+" https://github.com/NLKNguyen/papercolor-theme
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'override' : {
+  \         'color00' : ['#103040', ''],
+  \         'linenumber_bg' : ['#103040', ''],
+  \         'cursor_bg' : ['#ffff00', ''],
+  \         'cursor_fg' : ['#1a1a1a', ''],
+  \         'cursorline' : ['#003853', ''],
+  \         'cursorcolumn' : ['#003853', ''],
+  \         'folded_fg' : ['#b0d0e0', ''],
+  \         'folded_bg' : ['#305060', '']
+  \       }
+  \     }
+  \   }
+  \ }
+colorscheme PaperColor
+
 
 let &viminfofile=myviminfo_file
 " misc {{{
