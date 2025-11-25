@@ -1,4 +1,4 @@
-" Changed: 2025-11-22 15:34:08
+" Changed: 2025-11-25 08:53:01
 "
 "
 " Section variables {{{
@@ -243,6 +243,9 @@ set showtabline=1    " when the line with tab page labels will be displayed
 set fenc=""
 set fencs=""
 
+"===================================================
+" colorscheme config
+"
 if (has('win32') || has('win64'))
   set background=dark
 else

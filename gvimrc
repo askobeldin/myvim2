@@ -1,4 +1,4 @@
-" Changed: 2025-11-22 17:11:28
+" Changed: 2025-11-25 08:51:46
 "
 "
 " section common {{{
@@ -12,13 +12,12 @@ if has("gui")
     set guioptions-=L       " no left scrollbar
     set guipty
 
-    " Пробуем проверить значение системной переменной GVIM_THT если установлена.
+    " Пробуем получить значение системной переменной GVIM_THT, если установлена.
     " Должна содержать высоту шрифта. Если нет такой - то будет значение по
     " умолчанию 11
     let text_height = get(environ(), 'GVIM_THT', 11)
 
     if (has('win32') || has('win64'))
-      "set guifont=Consolas:h10:cRUSSIAN
       "set guifont=DejaVu_Sans_Mono:h11:cRUSSIAN:qDRAFT
       let &guifont='DejaVu_Sans_Mono:h' . text_height . ':cRUSSIAN:qDRAFT'
     else
@@ -36,34 +35,6 @@ if has("gui")
     winpos 0 0 
     set lines=70        " number of lines
     set columns=100     " number of columns
-
-    " ========================================
-    " my color scheme old
-    "colorscheme oceandeep3
-    "
-    "
-    " PaperColor theme config
-    " https://github.com/NLKNguyen/papercolor-theme
-    "set t_Co=256
-    "set background=dark
-    "let g:PaperColor_Theme_Options = {
-      "\   'theme': {
-      "\     'default.dark': {
-      "\       'override' : {
-      "\         'color00' : ['#103040', ''],
-      "\         'linenumber_bg' : ['#103040', ''],
-      "\         'cursor_bg' : ['#ffff00', ''],
-      "\         'cursor_fg' : ['#1a1a1a', ''],
-      "\         'cursorline' : ['#003853', ''],
-      "\         'cursorcolumn' : ['#003853', ''],
-      "\         'folded_fg' : ['#b0d0e0', ''],
-      "\         'folded_bg' : ['#305060', '']
-      "\       }
-      "\     }
-      "\   }
-      "\ }
-    "colorscheme PaperColor
-
 endif
 " }}}
 
