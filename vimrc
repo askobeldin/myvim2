@@ -1,4 +1,4 @@
-" Changed: 2025-11-25 08:53:01
+" Changed: 2025-11-26 21:01:38
 "
 "
 " Section variables {{{
@@ -91,7 +91,7 @@ Plugin 'vimwiki/vimwiki'
 " calendar (modern, with google)
 "Plugin 'itchyny/calendar.vim'
 
-" этот плагин работает с vimwiki
+" этот плагин календарь работает с vimwiki
 Plugin 'mattn/calendar-vim'
 
 " c.vim
@@ -618,8 +618,6 @@ let MRU_File = expand(vimDir . '/_vim_mru_files')
 "autocmd FileType calendar call calendar#color#syntax('Saturday', '#ee0000', '#103040', '')
 "autocmd FileType calendar call calendar#color#syntax('Today', '#ffff00', '#103040', 'bold')
 
-
-
 "call calendar#color#syntax('Select', '', s:select_color, '')
 "call calendar#color#syntax('TodaySunday', s:sunday_fg_color, s:sunday_bg_color, 'bold')
 "call calendar#color#syntax('TodaySaturday', s:saturday_fg_color, s:saturday_bg_color, 'bold')
@@ -644,6 +642,15 @@ let MRU_File = expand(vimDir . '/_vim_mru_files')
 " CalendarNormalSpace xxx guifg=#103040 guibg=#e4e4e4
 " CalendarCommentSelect xxx guifg=CadetBlue guibg=#3a5460
 " CalendarComment xxx links to Comment
-"
+" }}}
+" Calendar 'mattn/calendar-vim' plugin {{{
+let g:calendar_mark = 'left'
+let g:calendar_navi_label = 'Пред.,Сегодня,След.'
+let g:calendar_mruler = 'Янв,Фев,Мар,Апр,Май,Июн,Июл,Авг,Сен,Окт,Ноя,Дек'
+let g:calendar_wruler = 'Вс Пн Вт Ср Чт Пт Сб'
+let g:calendar_monday = 1
+let g:calendar_weeknm = 1
+let g:calendar_number_of_months = 3
+let g:calendar_datetime = 'title'
 " }}}
 " vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:
