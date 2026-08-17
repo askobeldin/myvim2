@@ -1,4 +1,4 @@
-" Changed: 2025-11-26 21:01:38
+" Changed: 2026-08-17 21:07:26
 "
 "
 " Section variables {{{
@@ -141,8 +141,9 @@ Plugin 'matze/vim-move'
 "Plugin 'adrian5/oceanic-next-vim'
 "Plugin 'hzchirs/vim-material'
 "Plugin 'glepnir/oceanic-material'
+Plugin 'mhartington/oceanic-next'
 
-Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'NLKNguyen/papercolor-theme'
 
 " The end of plugins config
 " All of your Plugins must be added before the following line
@@ -255,23 +256,25 @@ endif
 
 " PaperColor theme config
 " https://github.com/NLKNguyen/papercolor-theme
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override' : {
-  \         'color00' : ['#103040', ''],
-  \         'linenumber_bg' : ['#103040', ''],
-  \         'cursor_bg' : ['#ffff00', ''],
-  \         'cursor_fg' : ['#1a1a1a', ''],
-  \         'cursorline' : ['#003853', ''],
-  \         'cursorcolumn' : ['#003853', ''],
-  \         'folded_fg' : ['#b0d0e0', ''],
-  \         'folded_bg' : ['#305060', '']
-  \       }
-  \     }
-  \   }
-  \ }
-colorscheme PaperColor
+"let g:PaperColor_Theme_Options = {
+  "\   'theme': {
+  "\     'default.dark': {
+  "\       'override' : {
+  "\         'color00' : ['#103040', ''],
+  "\         'linenumber_bg' : ['#103040', ''],
+  "\         'cursor_bg' : ['#ffff00', ''],
+  "\         'cursor_fg' : ['#1a1a1a', ''],
+  "\         'cursorline' : ['#003853', ''],
+  "\         'cursorcolumn' : ['#003853', ''],
+  "\         'folded_fg' : ['#b0d0e0', ''],
+  "\         'folded_bg' : ['#305060', '']
+  "\       }
+  "\     }
+  "\   }
+  "\ }
+"colorscheme PaperColor
+
+colorscheme OceanicNext
 
 
 let &viminfofile=myviminfo_file
