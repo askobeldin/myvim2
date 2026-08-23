@@ -1,4 +1,4 @@
-" Changed: 2025-11-25 08:51:46
+" Changed: 2026-08-23 20:25:08
 "
 "
 " section common {{{
@@ -25,12 +25,14 @@ if has("gui")
       let &guifont='DejaVu Sans Mono ' . text_height
     endif
 
+
     set guicursor=n-v-c:block-Cursor
     set guicursor=i:hor15-Cursor
     set cursorline
 
     set guitablabel=%N\ %f
 
+    colorscheme OceanicNext
 
     winpos 0 0 
     set lines=70        " number of lines

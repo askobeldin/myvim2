@@ -1,4 +1,4 @@
-" Changed: 2026-08-17 21:07:26
+" Changed: 2026-08-23 20:26:47
 "
 "
 " Section variables {{{
@@ -273,9 +273,10 @@ endif
   "\   }
   "\ }
 "colorscheme PaperColor
+"colorscheme OceanicNext
+colorscheme darkblue
 
-colorscheme OceanicNext
-
+set cursorline
 
 let &viminfofile=myviminfo_file
 " misc {{{
