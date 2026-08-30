@@ -1,4 +1,4 @@
-" Changed: 2026-08-23 20:26:47
+" Changed: 2026-08-30 16:58:27
 "
 "
 " Section variables {{{
@@ -154,8 +154,12 @@ call vundle#end()
 "
 filetype plugin indent on
 
-packadd! matchit
 " runtime macros/matchit.vim
+packadd! matchit
+
+" runtime macros/nohlsearch.vim
+packadd! nohlsearch
+set updatetime=2000
 
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
 
