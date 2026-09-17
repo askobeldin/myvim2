@@ -1,4 +1,4 @@
-" Changed: 2026-08-23 20:25:08
+" Changed: 2026-09-17 21:49:36
 "
 "
 " section common {{{
@@ -32,7 +32,9 @@ if has("gui")
 
     set guitablabel=%N\ %f
 
-    colorscheme OceanicNext
+    "colorscheme OceanicNext
+    set background=dark
+    colorscheme sorbet
 
     winpos 0 0 
     set lines=70        " number of lines
