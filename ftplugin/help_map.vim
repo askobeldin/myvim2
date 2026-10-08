@@ -1,6 +1,5 @@
-" =============================================
-"
+" Mappings for help files
 
 nmap <buffer> <CR> <C-]>
 nmap <buffer> <BS> <C-T>
-nmap <buffer> <esc> <C-W>c
+"nmap <buffer> <esc> <C-W>c
