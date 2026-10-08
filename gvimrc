@@ -1,4 +1,4 @@
-" Changed: 2026-09-17 21:49:36
+" Changed: 2026-10-08 20:18:08
 "
 "
 " section common {{{
@@ -26,15 +26,20 @@ if has("gui")
     endif
 
 
-    set guicursor=n-v-c:block-Cursor
-    set guicursor=i:hor15-Cursor
+    "set guicursor=n-v-c:block-Cursor
+    "set guicursor=i:hor15-Cursor
+    "
+    "colorscheme OceanicNext
+    set background=dark
+    colorscheme sorbet
+    set guicursor=n-v-c:block-myCursor,ve:ver35-myCursor,o:hor50-myCursor,i-ci:hor15-myCursor,r-cr:hor20-myCursor,sm:block-myCursor
+    set guicursor=a:blinkon0
+    highlight myCursor gui=NONE guifg=black guibg=white
+
     set cursorline
 
     set guitablabel=%N\ %f
 
-    "colorscheme OceanicNext
-    set background=dark
-    colorscheme sorbet
 
     winpos 0 0 
     set lines=70        " number of lines

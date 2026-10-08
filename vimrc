@@ -1,4 +1,4 @@
-" Changed: 2026-08-30 16:58:27
+" Changed: 2026-10-08 20:21:12
 "
 "
 " Section variables {{{
@@ -141,7 +141,7 @@ Plugin 'matze/vim-move'
 "Plugin 'adrian5/oceanic-next-vim'
 "Plugin 'hzchirs/vim-material'
 "Plugin 'glepnir/oceanic-material'
-Plugin 'mhartington/oceanic-next'
+"Plugin 'mhartington/oceanic-next'
 
 "Plugin 'NLKNguyen/papercolor-theme'
 
@@ -278,7 +278,7 @@ endif
   "\ }
 "colorscheme PaperColor
 "colorscheme OceanicNext
-colorscheme darkblue
+colorscheme sorbet
 
 set cursorline
 
