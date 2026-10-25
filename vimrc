@@ -1,4 +1,4 @@
-" Changed: 2026-10-08 20:21:12
+" Changed: 2026-10-25 14:48:18
 "
 "
 " Section variables {{{
@@ -70,17 +70,14 @@ Plugin 'VundleVim/Vundle.vim'
 " my plugins
 " ----------
 "
-" NerdTree
-" Plugin 'scrooloose/nerdtree'
-
 " NERDCommenter
 Plugin 'scrooloose/nerdcommenter'
 
 " vim-scripts/mru
-Plugin 'vim-scripts/mru.vim'
+"Plugin 'vim-scripts/mru.vim'
 
 " bufexplorer
-Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'jlanzarotta/bufexplorer'
 
 " slimv
 Plugin 'kovisoft/slimv'
@@ -111,7 +108,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Exuberant Ctags >= 5.5, or (highly recommended) any version of Universal Ctags
 " which is a currently maintained fork of Exuberant Ctags with many bugfixes,
 " support for many more formats, and proper Unicode support
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 
 " vim-move
 Plugin 'matze/vim-move'
@@ -136,13 +133,6 @@ Plugin 'matze/vim-move'
 
 
 " Color themes here
-"
-"Plugin 'larsbs/vimterial'
-"Plugin 'adrian5/oceanic-next-vim'
-"Plugin 'hzchirs/vim-material'
-"Plugin 'glepnir/oceanic-material'
-"Plugin 'mhartington/oceanic-next'
-
 "Plugin 'NLKNguyen/papercolor-theme'
 
 " The end of plugins config
@@ -159,6 +149,7 @@ packadd! matchit
 
 " runtime macros/nohlsearch.vim
 packadd! nohlsearch
+
 set updatetime=2000
 
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
@@ -200,7 +191,17 @@ set diffopt=filler,context:3   " Diff options
 
 " Always save some info for next time
 set history=200
-set viminfo='50,h,s100,<1000
+
+"           +--Disable hlsearch while loading viminfo
+"           | +--Remember marks for last 500 files
+"           | |    +--Remember up to 10000 lines in each register
+"           | |    |      +--Remember up to 1MB in each register
+"           | |    |      |     +--Remember last 1000 search patterns
+"           | |    |      |     |     +---Remember last 1000 commands
+"           | |    |      |     |     |
+"           v v    v      v     v     v
+set viminfo=h,'500,<10000,s1000,/1000,:1000
+"set viminfo='50,h,s100,<1000
 
 
 set sessionoptions-=options       " Don't save options to session file - it's possibly buggy
@@ -233,6 +234,7 @@ set imsearch=0
 set autoread        " autoreread file if it has changed outside
 
 set showmatch
+
 set smartindent     " enable smart indent
 
 set tabstop=4
@@ -248,6 +250,21 @@ set showtabline=1    " when the line with tab page labels will be displayed
 set fenc=""
 set fencs=""
 
+set formatoptions=tnbl1jcro
+" t : Auto-wrap text using textwidth.
+" n : When formatting text, recognize numbered lists.
+" b : Only auto-wrap if you enter a blank at or before the wrap margin.
+" l : Already long lines are not broken in insert mode.
+" 1 : Don't break a line after a one-letter word.
+" j : Remove a comment leader when joining lines.
+" c : Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+" r : Automatically insert the current comment leader after hitting <Enter> in Insert mode.
+" o : Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+
+" Keep long lines from slowing Vim too much
+set synmaxcol=300
+
+
 "===================================================
 " colorscheme config
 "
@@ -258,32 +275,12 @@ else
   set background=dark
 endif
 
-" PaperColor theme config
-" https://github.com/NLKNguyen/papercolor-theme
-"let g:PaperColor_Theme_Options = {
-  "\   'theme': {
-  "\     'default.dark': {
-  "\       'override' : {
-  "\         'color00' : ['#103040', ''],
-  "\         'linenumber_bg' : ['#103040', ''],
-  "\         'cursor_bg' : ['#ffff00', ''],
-  "\         'cursor_fg' : ['#1a1a1a', ''],
-  "\         'cursorline' : ['#003853', ''],
-  "\         'cursorcolumn' : ['#003853', ''],
-  "\         'folded_fg' : ['#b0d0e0', ''],
-  "\         'folded_bg' : ['#305060', '']
-  "\       }
-  "\     }
-  "\   }
-  "\ }
-"colorscheme PaperColor
-"colorscheme OceanicNext
 colorscheme sorbet
 
 set cursorline
 
 let &viminfofile=myviminfo_file
-" misc {{{
+" Section misc {{{
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
@@ -339,6 +336,8 @@ set statusline=%F%m%w%r\%=[%{&fenc}\|%{&ff}\|%Y\|%04l,%04v\|%p%%]
 
 " Section menu {{{
 "
+set wildmode=list:lastused,full
+
 set wildmenu
 set wcm=<Tab>
 
@@ -357,8 +356,6 @@ menu MyMenu.ClearSpaces ms:%s/\s\+$//e<CR>'s
 map <F8>  :emenu MyMenu.<TAB>
 
 " snippets
-imap <F9> <Plug>snipMateNextOrTrigger
-smap <F9> <Plug>snipMateNextOrTrigger
 
 " jumping cursor between windows
 noremap <C-J> <C-W>j
