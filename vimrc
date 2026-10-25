@@ -1,4 +1,4 @@
-" Changed: 2026-10-25 14:48:18
+" Changed: 2026-10-25 21:24:27
 "
 "
 " Section variables {{{
@@ -348,6 +348,14 @@ menu MyMenu.Encoding.cp866        :e ++enc=cp866<CR>
 menu MyMenu.Calendar              :Calendar<CR>
 menu MyMenu.ClearSpaces ms:%s/\s\+$//e<CR>'s
 "menu MyMenu.ThisFileName   msHmtgg/[Ff]ile:\s*/e+1<CR>"_D"=expand("%:p")<CR>p'tzt`s
+" }}}
+
+" Section custom grepprg {{{
+" Для работы этой настройки необходима установка в системе `ripgrep`
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ --no-hidden\ --smart-case
+  set grepformat=%f:%l:%c:%m
+endif
 " }}}
 
 " Section mappings {{{
