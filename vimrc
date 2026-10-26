@@ -1,4 +1,4 @@
-" Changed: 2026-10-25 21:24:27
+" Changed: 2026-10-26 11:35:05
 "
 "
 " Section variables {{{
@@ -611,7 +611,7 @@ endfunction
 " }}}
 " MRU {{{
 "
-let MRU_File = expand(vimDir . '/_vim_mru_files')
+"let MRU_File = expand(vimDir . '/_vim_mru_files')
 " }}}
 " Calendar 'itchyny/calendar.vim' plugin {{{
 "
@@ -665,5 +665,9 @@ let g:calendar_monday = 1
 let g:calendar_weeknm = 1
 let g:calendar_number_of_months = 3
 let g:calendar_datetime = 'title'
+" }}}
+" CtrlP {{{
+let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+let g:ctrlp_use_caching = 0
 " }}}
 " vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:
