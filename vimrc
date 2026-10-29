@@ -1,4 +1,4 @@
-" Changed: 2026-10-26 11:35:05
+" Changed: 2026-10-29 21:13:47
 "
 "
 " Section variables {{{
@@ -149,6 +149,8 @@ packadd! matchit
 
 " runtime macros/nohlsearch.vim
 packadd! nohlsearch
+
+packadd! helptoc
 
 set updatetime=2000
 
@@ -336,9 +338,10 @@ set statusline=%F%m%w%r\%=[%{&fenc}\|%{&ff}\|%Y\|%04l,%04v\|%p%%]
 
 " Section menu {{{
 "
-set wildmode=list:lastused,full
-
+"set wildmode=list:lastused,full
 set wildmenu
+set wildoptions=pum
+set completeopt=fuzzy
 set wcm=<Tab>
 
 menu MyMenu.Encoding.utf-8        :e ++enc=utf-8 <CR>
