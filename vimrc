@@ -1,4 +1,4 @@
-" Changed: 2026-10-29 21:13:47
+" Changed: 2026-11-01 18:07:02
 "
 "
 " Section variables {{{
@@ -665,7 +665,7 @@ let g:calendar_navi_label = 'Пред.,Сегодня,След.'
 let g:calendar_mruler = 'Янв,Фев,Мар,Апр,Май,Июн,Июл,Авг,Сен,Окт,Ноя,Дек'
 let g:calendar_wruler = 'Вс Пн Вт Ср Чт Пт Сб'
 let g:calendar_monday = 1
-let g:calendar_weeknm = 1
+let g:calendar_weeknm = 5
 let g:calendar_number_of_months = 3
 let g:calendar_datetime = 'title'
 " }}}
