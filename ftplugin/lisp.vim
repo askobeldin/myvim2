@@ -1,7 +1,37 @@
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set softtabstop=4
-set autoindent
-setlocal textwidth=100
+" Vim filetype plugin
+" Language:      Lisp
+" Maintainer:    Sergey Khorev <sergey.khorev@gmail.com>
+" URL:		 http://sites.google.com/site/khorser/opensource/vim
+" Original author:    Dorai Sitaram <ds26@gte.com>
+" Original URL:		 http://www.ccs.neu.edu/~dorai/vimplugins/vimplugins.html
+" Last Change:   Mar 10, 2021
+"                May 23, 2024 by Riley Bruins <ribru17@gmail.com> ('commentstring')
+
+" Only do this when not done yet for this buffer
+if exists("b:did_ftplugin")
+  finish
+endif
+
+" Don't load another plugin for this buffer
+" XXX ???
+"let b:did_ftplugin = 1
+
+setl comments=:;;;;,:;;;,:;;,:;,sr:#\|,mb:\|,ex:\|#
+setl define=^\\s*(def\\k*
+setl formatoptions-=t
+setl iskeyword+=+,-,*,/,%,<,=,>,:,$,?,!,@-@,94
+setl lisp
+setl commentstring=;\ %s
+
+let b:undo_ftplugin = "setlocal comments< define< formatoptions< iskeyword< lisp< commentstring<"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" my old text in this file
+"
+"set tabstop=4
+"set shiftwidth=4
+"set smarttab
+"set expandtab
+"set softtabstop=4
+"set autoindent
+"setlocal textwidth=100
