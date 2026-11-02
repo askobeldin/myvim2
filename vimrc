@@ -1,4 +1,4 @@
-" Changed: 2026-11-01 18:07:02
+" Changed: 2026-11-02 20:52:18
 "
 "
 " Section variables {{{
@@ -308,9 +308,10 @@ if has("autocmd")
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
 
+  " TODO: проверить и удалить при работоспособности
   " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+  "augroup vimrcEx
+  "au!
 
   " For all text files set 'textwidth' to 80 characters.
   "autocmd FileType text setlocal textwidth=80
@@ -318,11 +319,21 @@ if has("autocmd")
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
+  "autocmd BufReadPost *
+    "\ if line("'\"") > 0 && line("'\"") <= line("$") |
+    "\   exe "normal g`\"" |
+    "\ endif
+  "augroup END
+  "XXX
+  augroup RestoreCursor
+      autocmd!
+      autocmd BufReadPost *
+        \ let line = line("'\"")
+        \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+        \      && index(['xxd', 'gitrebase'], &filetype) == -1
+        \      && !&diff
+        \ |   execute "normal! g`\""
+        \ | endif
   augroup END
 
 else

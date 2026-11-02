@@ -13,7 +13,7 @@ if exists("b:did_ftplugin")
 endif
 
 " Don't load another plugin for this buffer
-" XXX ???
+" XXX
 "let b:did_ftplugin = 1
 
 setl comments=:;;;;,:;;;,:;;,:;,sr:#\|,mb:\|,ex:\|#
@@ -23,15 +23,17 @@ setl iskeyword+=+,-,*,/,%,<,=,>,:,$,?,!,@-@,94
 setl lisp
 setl commentstring=;\ %s
 
-let b:undo_ftplugin = "setlocal comments< define< formatoptions< iskeyword< lisp< commentstring<"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " my old text in this file
 "
-"set tabstop=4
-"set shiftwidth=4
-"set smarttab
-"set expandtab
-"set softtabstop=4
-"set autoindent
-"setlocal textwidth=100
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal smarttab
+setlocal expandtab
+setlocal softtabstop=4
+setlocal autoindent
+setlocal textwidth=100
+
+let b:undo_ftplugin = "setlocal comments< define< formatoptions< iskeyword< lisp< commentstring<"
+let b:undo_ftplugin ..= " | setlocal tabstop< shiftwidth< smarttab< expandtab< softtabstop< autoindent< textwidth<"
