@@ -1,4 +1,4 @@
-" Changed: 2026-11-02 20:52:18
+" Changed: 2026-11-03 08:55:11
 "
 "
 " Section variables {{{
@@ -71,7 +71,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ----------
 "
 " NERDCommenter
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
 
 " vim-scripts/mru
 "Plugin 'vim-scripts/mru.vim'
@@ -151,6 +151,9 @@ packadd! matchit
 packadd! nohlsearch
 
 packadd! helptoc
+
+" comment plugin
+packadd! comment
 
 set updatetime=2000
 
