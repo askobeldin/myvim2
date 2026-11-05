@@ -1,4 +1,4 @@
-" Changed: 2026-11-03 08:55:11
+" Changed: 2026-11-05 21:14:43
 "
 "
 " Section variables {{{
@@ -534,12 +534,12 @@ augroup VimrcAuGroup
   autocmd FileType vimwiki setlocal foldmethod=expr | setlocal foldenable | set foldexpr=VimwikiFoldLevelCustom(v:lnum) | setlocal wrap
 augroup END
 
-" C files config
-augroup filetype_CC
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.h,*.c setlocal cin fileencoding=utf-8 filetype=c.doxygen fileformat=unix
-  autocmd filetype c setlocal cin filetype=c.doxygen fileencoding=utf-8 fileformat=unix formatprg=astyle
-augroup END
+" " C files config
+" augroup filetype_CC
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.h,*.c setlocal cin fileencoding=utf-8 filetype=c.doxygen fileformat=unix
+"   autocmd filetype c setlocal cin filetype=c.doxygen fileencoding=utf-8 fileformat=unix formatprg=astyle
+" augroup END
 
 " make files config
 augroup filetype_make
