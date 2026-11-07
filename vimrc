@@ -1,4 +1,4 @@
-" Changed: 2026-11-05 21:14:43
+" Last modified: 2026-11-07 11:31:00
 "
 "
 " Section variables {{{
@@ -439,14 +439,14 @@ function! MyDiff()
 endfunction
 
 
-" If buffer modified, update any 'Changed: ' in the first 10 lines.
-" 'Changed: ' can have up to 10 characters before (they are retained).
+" If buffer modified, update any 'Last modified: ' in the first 10 lines.
+" 'Last modified: ' can have up to 10 characters before (they are retained).
 " Restores cursor and window position using save_cursor variable.
 function! LastModifiedDate()
   if &modified
     let save_cursor = getpos(".")
     let n = min([10, line("$")])
-    keepjumps exe '1,' . n . 's#^\(.\{,10}Changed: \).*#\1' .
+    keepjumps exe '1,' . n . 's#^\(.\{,10}Last\ modified: \).*#\1' .
           \ strftime('%Y-%m-%d %T') . '#e'
     call histdel('search', -1)
     call setpos('.', save_cursor)
@@ -458,56 +458,56 @@ endfunction
 " python files config
 augroup filetype_py
   autocmd!
-  autocmd BufRead *.py set nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-  autocmd BufNewFile,BufReadPre *.py setlocal fileencoding=utf-8 fileformat=unix
+  " autocmd BufRead *.py set nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+  " autocmd BufNewFile,BufReadPre *.py setlocal fileencoding=utf-8 fileformat=unix
   autocmd BufNewFile *.py silent! :execute "0r " . expand(vimDir . '/myheaders/python.header') . "|4"
 augroup END
 
 " perl files config
 augroup filetype_perl
   autocmd!
-  autocmd BufNewFile,BufReadPre *.pl,*.pm setlocal fileencoding=utf-8 filetype=perl fileformat=unix
+  " autocmd BufNewFile,BufReadPre *.pl,*.pm setlocal fileencoding=utf-8 filetype=perl fileformat=unix
   autocmd BufNewFile *.pl,*.pm silent! :execute "0r " . expand(vimDir . '/myheaders/perl.header') . "|10"
 augroup END
 
 " html files config
 augroup filetype_html
   autocmd!
-  autocmd BufNewFile,BufReadPre *.html setlocal fileencoding=utf-8 filetype=html fileformat=unix nowrap
+  " autocmd BufNewFile,BufReadPre *.html setlocal fileencoding=utf-8 filetype=html fileformat=unix nowrap
   autocmd BufNewFile *.html silent! :execute "0r " . expand(vimDir . '/myheaders/html.header') . "|5"
 augroup END
 
 " javascript files config
-augroup filetype_javascript
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.js setlocal fileencoding=utf-8 filetype=javascript fileformat=unix
-augroup END
+" augroup filetype_javascript
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.js setlocal fileencoding=utf-8 filetype=javascript fileformat=unix
+" augroup END
 
 " json files config
-augroup filetype_json
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.json setlocal fileencoding=utf-8 filetype=json fileformat=unix
-augroup END
+" augroup filetype_json
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.json setlocal fileencoding=utf-8 filetype=json fileformat=unix
+" augroup END
 
 " tcl files config
-augroup filetype_tcl
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.tcl setlocal fileencoding=utf-8 filetype=tcl fileformat=unix
-augroup END
+" augroup filetype_tcl
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.tcl setlocal fileencoding=utf-8 filetype=tcl fileformat=unix
+" augroup END
 
 " go files config
-augroup filetype_go
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.go setlocal fileencoding=utf-8 filetype=go fileformat=unix
-augroup END
+" augroup filetype_go
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.go setlocal fileencoding=utf-8 filetype=go fileformat=unix
+" augroup END
 
 " lisp files config
-augroup filetype_lisp
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.lisp setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
-  autocmd BufNewFile,BufReadPre *.cl setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
-  autocmd BufNewFile,BufReadPre *.el setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
-augroup END
+" augroup filetype_lisp
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.lisp setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+"   autocmd BufNewFile,BufReadPre *.cl setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+"   autocmd BufNewFile,BufReadPre *.el setlocal fileencoding=utf-8 filetype=lisp fileformat=unix
+" augroup END
 
 " long lines highlighting
 augroup longLines
@@ -518,16 +518,16 @@ augroup longLines
 augroup END
 
 " markdown files config
-augroup filetype_md
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
-augroup END
+" augroup filetype_md
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.md setlocal fileencoding=utf-8 fileformat=unix
+" augroup END
 
 " vimwiki files config
-augroup filetype_vimwiki
-  autocmd!
-  autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
-augroup END
+" augroup filetype_vimwiki
+"   autocmd!
+"   autocmd BufNewFile,BufReadPre *.wiki setlocal fileencoding=utf-8 fileformat=unix filetype=vimwiki
+" augroup END
 
 augroup VimrcAuGroup
   autocmd!
@@ -542,21 +542,23 @@ augroup END
 " augroup END
 
 " make files config
-augroup filetype_make
-  autocmd!
-  autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
-augroup END
+" augroup filetype_make
+"   autocmd!
+"   autocmd filetype make setlocal nocin noexpandtab fileencoding=utf-8 fileformat=unix
+" augroup END
+
 
 " insert last modified date
 autocmd BufWritePre * call LastModifiedDate()
 
+
 " For all modifiabled text files
-autocmd BufNewFile,BufReadPre *.txt
-  \ if &modifiable |
-  \     setlocal textwidth=0 fileencoding=utf-8 fileformat=unix |
-  \     setlocal wrapmargin=0 formatoptions+=t formatoptions-=l |
-  \     setlocal wrap |
-  \ endif
+" autocmd BufNewFile,BufReadPre *.txt
+"   \ if &modifiable |
+"   \     setlocal textwidth=0 fileencoding=utf-8 fileformat=unix |
+"   \     setlocal wrapmargin=0 formatoptions+=t formatoptions-=l |
+"   \     setlocal wrap |
+"   \ endif
 " }}} 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

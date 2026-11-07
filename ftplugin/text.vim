@@ -3,8 +3,6 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-let b:undo_ftplugin = 'setlocal comments< commentstring<'
-
 " We intentionally don't set formatoptions-=t since text should wrap as text.
 
 " Pseudo comment leaders to indent bulleted lists with '-' and '*'.  And allow
@@ -14,9 +12,18 @@ setlocal commentstring=
 
 setlocal tabstop=4
 setlocal shiftwidth=4
-" FIXME
-" setlocal smarttab
 setlocal expandtab
 setlocal softtabstop=4
 
+if &modifiable 
+	setlocal textwidth=0 
+	setlocal fileformat=unix
+	setlocal wrapmargin=0 
+	setlocal formatoptions+=t 
+	setlocal formatoptions-=l
+    setlocal wrap
+endif
+
+let b:undo_ftplugin = 'setlocal comments< commentstring<'
 let b:undo_ftplugin ..= ' | setlocal ts< sw< et< sts<'
+let b:undo_ftplugin ..= ' | setlocal tw< ff< wm< fo< wrap<'
