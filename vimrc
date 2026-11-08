@@ -1,4 +1,4 @@
-" Last modified: 2026-11-07 11:31:00
+" Last changed: 2026-11-08 16:39:58
 "
 "
 " Section variables {{{
@@ -446,7 +446,7 @@ function! LastModifiedDate()
   if &modified
     let save_cursor = getpos(".")
     let n = min([10, line("$")])
-    keepjumps exe '1,' . n . 's#^\(.\{,10}Last\ modified: \).*#\1' .
+    keepjumps exe '1,' . n . 's#^\(.\{,10}[Ll]ast\s*[Cc]hanged: \).*#\1' .
           \ strftime('%Y-%m-%d %T') . '#e'
     call histdel('search', -1)
     call setpos('.', save_cursor)
