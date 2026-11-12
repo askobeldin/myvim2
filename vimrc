@@ -1,4 +1,4 @@
-" Last changed: 2026-11-08 16:39:58
+" Last change: 2026-11-12 10:21:44
 "
 "
 " Section variables {{{
@@ -438,15 +438,14 @@ function! MyDiff()
    silent execute '!"'.$VIMRUNTIME.'\diff" -a ' . opt . v:fname_in . ' ' . v:fname_new . ' > ' . v:fname_out
 endfunction
 
-
-" If buffer modified, update any 'Last modified: ' in the first 10 lines.
-" 'Last modified: ' can have up to 10 characters before (they are retained).
+" If buffer modified, update any `Last change: ` in the first 10 lines.
+" `Last change: ` can have up to 10 characters before (they are retained).
 " Restores cursor and window position using save_cursor variable.
 function! LastModifiedDate()
   if &modified
     let save_cursor = getpos(".")
     let n = min([10, line("$")])
-    keepjumps exe '1,' . n . 's#^\(.\{,10}[Ll]ast\s*[Cc]hanged: \).*#\1' .
+    keepjumps exe '1,' . n . 's#\v^(.{,10}%(L|l)ast\s?%(C|c)hange: ).*#\1' .
           \ strftime('%Y-%m-%d %T') . '#e'
     call histdel('search', -1)
     call setpos('.', save_cursor)
