@@ -1,4 +1,4 @@
-" Last change: 2026-11-12 10:21:44
+" Last change: 2026-11-12 17:16:52
 "
 "
 " Section variables {{{
@@ -417,7 +417,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand(expand('%:h').'/') : '%%'
 nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
 nnoremap <silent> <Leader>n :set number!<CR>       " toggle of line numbers
 nnoremap <silent> <Leader>lm :set list!<CR>        " list mode
-"nnoremap <silent> <Leader>t :NERDTreeToggle<CR>    " NERDTree toggle
+" nnoremap <silent> n :silent! normal! n<CR>         " Подавляет сообщения об достижении конца файла
+" nnoremap <silent> N :silent! normal! N<CR>         " Подавляет сообщения об достижении начала файла
 " }}}
 
 " Section my functions {{{
@@ -445,7 +446,7 @@ function! LastModifiedDate()
   if &modified
     let save_cursor = getpos(".")
     let n = min([10, line("$")])
-    keepjumps exe '1,' . n . 's#\v^(.{,10}%(L|l)ast\s?%(C|c)hange: ).*#\1' .
+    keepjumps exe '1,' . n . 's#\v^(.{,10}%(L|l)ast\s?%(C|c)hange:)(\s*)(.*)#\1\2' .
           \ strftime('%Y-%m-%d %T') . '#e'
     call histdel('search', -1)
     call setpos('.', save_cursor)
