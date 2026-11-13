@@ -4,7 +4,7 @@
 " Homepage:      https://github.com/vim-perl/vim-perl
 " Bugs/requests: https://github.com/vim-perl/vim-perl/issues
 " License:       Vim License (see :help license)
-" Last Change:   2021 Nov 10
+" Last Change:   2026-11-13 13:37:54
 "                2023 Sep 07 by Vim Project (safety check: don't execute perl
 "                    from current directory)
 "                2024 Jan 14 by Vim Project (browsefilter)
@@ -101,11 +101,11 @@ endif
 
 setlocal tabstop=4
 setlocal shiftwidth=4
-" setlocal smarttab
 setlocal expandtab
 setlocal softtabstop=4
 setlocal autoindent
 setlocal cindent
+setlocal fileformat=unix
 
 let b:undo_ftplugin .= " | setlocal ts< sw< et< sts< ai< cin<"
 

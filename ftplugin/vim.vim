@@ -6,7 +6,7 @@
 "                    @Konfekt
 "                    @tpope (s:Help())
 "                    @lacygoill
-" Last Change:       2026 Jun 27
+" Last Change:       2026-11-13 13:21:09
 " 2026 Aug 02 by Vim project: Update 'path' setting #20908
 
 " Only do this when not done yet for this buffer
@@ -54,6 +54,9 @@ setlocal fo-=t fo+=croql
 " To allow tag lookup via CTRL-] for autoload functions, '#' must be a
 " keyword character.  E.g., for netrw#Nread().
 setlocal isk+=#
+
+setlocal fileformat=unix
+
 
 " Use :help to lookup the keyword under the cursor with K.
 " Distinguish between commands, options and functions.

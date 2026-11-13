@@ -1,4 +1,4 @@
-" Last change: 2026-11-12 17:16:52
+" Last change: 2026-11-13 13:16:50
 "
 "
 " Section variables {{{
@@ -224,7 +224,7 @@ set ch=1            " number of lines used for the command-line
 set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
-set nowrapscan      " 
+set wrapscan      " 
 set foldenable      " fold enable
 set laststatus=2    " 0 = never a status line; 2 = always a status line; 
                     " 1 = status line if there is more than one window
@@ -417,8 +417,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand(expand('%:h').'/') : '%%'
 nnoremap <silent> <Leader>h :set hlsearch!<CR>     " toggle highlighting of search matches
 nnoremap <silent> <Leader>n :set number!<CR>       " toggle of line numbers
 nnoremap <silent> <Leader>lm :set list!<CR>        " list mode
-" nnoremap <silent> n :silent! normal! n<CR>         " Подавляет сообщения об достижении конца файла
-" nnoremap <silent> N :silent! normal! N<CR>         " Подавляет сообщения об достижении начала файла
 " }}}
 
 " Section my functions {{{
@@ -560,10 +558,9 @@ autocmd BufWritePre * call LastModifiedDate()
 "   \     setlocal wrap |
 "   \ endif
 " }}} 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " Configure my plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " slimv {{{
 "
 """""""""""""""""""""""""""
@@ -689,4 +686,4 @@ let g:calendar_datetime = 'title'
 let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
 let g:ctrlp_use_caching = 0
 " }}}
-" vim: set sw=2 ts=2 sts=2 et tw=80 ff=unix ft=vim fdm=marker:
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:

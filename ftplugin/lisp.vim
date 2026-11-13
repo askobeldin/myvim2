@@ -4,7 +4,7 @@
 " URL:		 http://sites.google.com/site/khorser/opensource/vim
 " Original author:    Dorai Sitaram <ds26@gte.com>
 " Original URL:		 http://www.ccs.neu.edu/~dorai/vimplugins/vimplugins.html
-" Last Change:   Mar 10, 2021
+" Last Change:   2026-11-13 13:36:06
 "                May 23, 2024 by Riley Bruins <ribru17@gmail.com> ('commentstring')
 
 " Only do this when not done yet for this buffer
@@ -25,8 +25,6 @@ setl commentstring=;\ %s
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" my old text in this file
-"
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal smarttab
@@ -34,6 +32,7 @@ setlocal expandtab
 setlocal softtabstop=4
 setlocal autoindent
 setlocal textwidth=100
+setlocal fileformat=unix
 
 let b:undo_ftplugin = "setlocal comments< define< formatoptions< iskeyword< lisp< commentstring<"
 let b:undo_ftplugin ..= " | setlocal tabstop< shiftwidth< smarttab< expandtab< softtabstop< autoindent< textwidth<"

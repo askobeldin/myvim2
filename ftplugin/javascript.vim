@@ -1,10 +1,10 @@
-" ===============================
 " javascript files config
+" Last change: 2026-11-13 13:34:58
 "
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set softtabstop=4
-set autoindent
-" set smartindent
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
+setlocal softtabstop=4
+setlocal autoindent
+setlocal smartindent
+setlocal fileformat=unix

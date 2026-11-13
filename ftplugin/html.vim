@@ -1,21 +1,23 @@
+" Vim filetype plugin file
+" Language:		HTML
+" Maintainer:		Doug Kearns <dougkearns@gmail.com>
+" Previous Maintainer:	Dan Sharp
+" Last Change:		2026-11-13 13:31:48
+" 2026 May 25 by Vim plugin: improve the matchit plugin #20313
+
+
+if exists("b:did_ftplugin")
+  finish
+endif
+let b:did_ftplugin = 1
+
 setlocal tabstop=4 
 setlocal shiftwidth=4
 setlocal expandtab
 setlocal softtabstop=4
 setlocal autoindent
 setlocal smartindent
-
-" Vim filetype plugin file
-" Language:		HTML
-" Maintainer:		Doug Kearns <dougkearns@gmail.com>
-" Previous Maintainer:	Dan Sharp
-" Last Change:		2025 Sep 12
-" 2026 May 25 by Vim plugin: improve the matchit plugin #20313
-
-if exists("b:did_ftplugin")
-  finish
-endif
-let b:did_ftplugin = 1
+setlocal fileformat=unix
 
 let s:save_cpo = &cpo
 set cpo-=C
