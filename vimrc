@@ -1,4 +1,4 @@
-" Last change: 2026-11-13 13:16:50
+" Last change: 2026-11-19 21:16:47
 "
 "
 " Section variables {{{
@@ -348,6 +348,18 @@ endif
 " Section statusline {{{
 "
 set statusline=%F%m%w%r\%=[%{&fenc}\|%{&ff}\|%Y\|%04l,%04v\|%p%%]
+" }}}
+
+" Section completion {{{
+"
+set autocomplete
+set complete=.^5,w^5,b^5,u^5
+" set completeopt=popup
+set completeopt=menu,noselect,fuzzy,nearest
+set autocompletedelay=600
+
+inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
 " Section menu {{{
