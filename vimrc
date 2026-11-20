@@ -1,4 +1,4 @@
-" Last change: 2026-11-19 21:16:47
+" Last change: 2026-11-20 10:02:37
 "
 "
 " Section variables {{{
@@ -352,22 +352,23 @@ set statusline=%F%m%w%r\%=[%{&fenc}\|%{&ff}\|%Y\|%04l,%04v\|%p%%]
 
 " Section completion {{{
 "
-set autocomplete
-set complete=.^5,w^5,b^5,u^5
-" set completeopt=popup
-set completeopt=menu,noselect,fuzzy,nearest
-set autocompletedelay=600
+" Опцию `complete` есть смысл установить как локальную для типов файлов в папке
+" $MYVIMDIR/ftplugin
+" Например:
+" setlocal complete=.^8,w,b,u^8
+"
+set completeopt=nearest,menu,popup,fuzzy,noselect
+set autocompletedelay=100
 
-inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
 " Section menu {{{
 "
-"set wildmode=list:lastused,full
+set wildmode=noselect:lastused,full
 set wildmenu
 set wildoptions=pum
-set completeopt=fuzzy
 set wcm=<Tab>
 
 menu MyMenu.Encoding.utf-8        :e ++enc=utf-8 <CR>

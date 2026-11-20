@@ -15,6 +15,8 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal softtabstop=4
 
+setlocal complete=.^10
+
 if &modifiable 
 	setlocal textwidth=0 
 	setlocal fileformat=unix
