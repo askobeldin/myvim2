@@ -15,7 +15,10 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal softtabstop=4
 
-setlocal complete=.^10
+" for version 9.2 ?
+" setlocal complete=.^10
+"
+setlocal complete=.
 
 if &modifiable 
 	setlocal textwidth=0 
